@@ -1,0 +1,114 @@
+title: NewYarnScript
+---
+// Texting only: physical interactions and author comments are omitted.
+Tom: Donʼt open the door or the lights, stay quiet.
+-> Who are you?
+    Tom: Iʼm Tom from room 303. Donʼt open the door, it isnʼt a person knocking.
+-> Why?
+    Tom: It isnʼt a person knocking, stay quiet.
+Player: Wdym? I donʼt believe you. How do you even know someone is knocking at my door?
+Tom: I donʼt know what it is, just stay inside. I heard knocking at 304 and then it knocked at my door, then 302, Iʼm guessing youʼre next. If you donʼt believe me, check the beds next to you, I bet your roommates are gone.
+// The bed interaction is omitted.
+-> Where are my roommates?
+    Tom: I donʼt know, my roommates are gone too.
+-> How do you know all of this?
+    Tom: I guessed. my roommates are gone so Iʼm guessing yours are too.
+<<jump DormGroupChat>>
+===
+
+title: DormGroupChat
+---
+RA: Welcome fellow students, I will be your RA for the rest of your stay.
+Rules
+1. It is your RAʼs responsibility to protect you, you can always trust your RA.
+2. When using the bathroom, if someone knocks while you are using the restroom, run out of the bathroom and back to your room.
+3. If you see something unusual in the hallways, go to the nearest corner and crouch facing the corner until you hear the ringing of the clock.
+4. If your roommates are gone, they are just in the bathroom, go out and bring them back.
+5. Room check is at 12AM. All children must be in their rooms before 12AM, if your roommates are not, the RA will bring them back. Open the door to let them in.
+RA: Naughty children who donʼt follow rules will get in trouble.
+???: Who is this? This is college, not high school.
+???: I thought this is a student chat, who pulled a RA in.
+???: Whatʼs with the rules?
+???: This is a joke right? If it is itʼs not funny
+-> Text in Group chat
+    <<jump GroupChatReply>>
+-> Text someone else
+    <<jump ChooseContact>>
+===
+
+title: GroupChatReply
+---
+-> @RA My roommates are not in the room
+    RA: I brought them to your door, open the door.
+    // The door-action choices and in-person encounter are omitted.
+    <<stop>>
+-> Is it just me or are the rules kind of scary
+    ???: Yes exactly, someoneʼs probably just pranking. Just ignore it.
+    -> Text someone else
+        <<jump ChooseContact>>
+    -> Send a friend request to this person
+        <<jump JackChat>>
+===
+
+title: ChooseContact
+---
+-> Text 303 Tom
+    <<jump TomChat>>
+-> Text roommate Bob
+    <<jump BobChat>>
+===
+
+title: TomChat
+---
+-> is it possible that my roommates are right outside the door?
+    Tom: Maybe but think about it. If your roommates were outside, wouldnʼt they just come in? They wouldnʼt leave the room without a key right?
+    <<stop>>
+-> What do you know about the rules?
+    Tom: I donʼt know but I donʼt want to know what happens if you break the rules.
+    <<stop>>
+-> What is going on?
+    Tom: I donʼt know, whatever it is, it's not as innocent as it seems. Just follow the rules. If I find anything Iʼll update you.
+    Player: How can I be sure that I can trust you?
+    Tom: You canʼt and you shouldnʼt, weʼre all just betting it at this point.
+    <<stop>>
+===
+
+title: BobChat
+---
+-> Are you outside the door?
+    Bob:(typing)
+    Player: Do you need me to open the door?
+    Bob: Yes
+    // Opening the door and going to bed are omitted physical actions.
+    <<stop>>
+-> Where did you go, itʼs the middle of the night?
+    Bob: The restroom
+    Player: Is someone with you?
+    Bob: No, what are you talking about, stop scaring me.
+    Bob: Can you come open the door?
+    <<stop>>
+-> Did you see the messages in the group chat?
+    Bob: What are the rules? Someoneʼs probably pranking us.
+    Bob: Donʼt worry about me, I'm not coming back tonight, I have a date.
+    <<stop>>
+===
+
+title: JackChat
+---
+Jack has accepted your friend request.
+Jack: Hey whatʼs up?
+-> Did anyone come and knock on your door?
+    Jack: No, who would knock in the middle of the night. Stop overreacting, itʼs probably just a senior prank.
+    <<stop>>
+-> What room are you in?
+    Jack: I live in 302.
+    Player: Do you know Tom from room 303?
+    Jack: What are you talking about, there is no Tom in 303. 303ʼs students didnʼt come in during orientation.
+    Player: Maybe they came after?
+    Jack: Idk maybe?
+    <<stop>>
+-> Are your roommates with you in the dorm?
+    Jack: No? They went out, said they werenʼt coming back tonight. Why are you asking such weird questions, donʼt tell me you actually believe this bs.
+    Player: Idk yet…
+    <<stop>>
+===
