@@ -60,20 +60,20 @@ public class GameManager : MonoBehaviour
 
     public void SpawnThirdPersonPrefab(Vector3 pos, Quaternion rot)
     {
-        GameObject player = Instantiate(ThirdPersonRig, pos, rot);
+        //GameObject player = Instantiate(ThirdPersonRig, pos, rot);
 
         // Make sure the player is active
-        player.SetActive(true);
+        //player.SetActive(true);
 
         // Find the camera even if it was disabled
-        Camera playerCamera = player.GetComponentInChildren<Camera>(true);
+       // Camera playerCamera = player.GetComponentInChildren<Camera>(true);
 
-        if (playerCamera != null)
+        //if (playerCamera != null)
         {
-            playerCamera.gameObject.SetActive(true);
+           // playerCamera.gameObject.SetActive(true);
 
             // Make sure it is the active camera
-            playerCamera.enabled = true;
+           // playerCamera.enabled = true;
         }
     }
 

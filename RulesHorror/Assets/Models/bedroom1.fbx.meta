@@ -3,7 +3,112 @@ guid: b858954ecc049b246b85226283b26cd6
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bed2
+    second: {fileID: 2100000, guid: 79f9cfb7a6f69974da3674b1e04519d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blanket1
+    second: {fileID: 2100000, guid: cd71f62b09d634d4cb1ede7f8ce7a2a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bookblue
+    second: {fileID: 2100000, guid: f8d574a291c0fbc489b4cb6f78cfb5ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bookgreen
+    second: {fileID: 2100000, guid: 0163654902f899247b823bfd677f7e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bookred
+    second: {fileID: 2100000, guid: 7ec1bb0bbe0ee804397ed5ab04a9dc68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: box4
+    second: {fileID: 2100000, guid: 7c558f1f3929a2340a60a11e9bc9a87f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chair2
+    second: {fileID: 2100000, guid: e878975668ab9384e88ee8909e2fdec0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: closet1
+    second: {fileID: 2100000, guid: 35ff9895ecacb5e4e9bf5fed964c0df9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: closetpull
+    second: {fileID: 2100000, guid: 10d72f01a4d24d241b943b3a7c01054e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk2
+    second: {fileID: 2100000, guid: 01eee32c3814a964d9c8bc6cb605d56c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door1
+    second: {fileID: 2100000, guid: b14deee9a2f55f64ea5bb1a4512f0202, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor1
+    second: {fileID: 2100000, guid: cb4f5427044e3f34e831bf99b71dd1dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 58b7b0835f0ad5144bc19c5810cbec95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: knob
+    second: {fileID: 2100000, guid: 58b0a12285988ac4b8017e3b8c54c916, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 616a509e375e95445b605f00191da78b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light1
+    second: {fileID: 2100000, guid: 83eb14c3884a7b54498df491058cea81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paper
+    second: {fileID: 2100000, guid: e156c9f001d056245b05b9f1d0b8a6e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phonescreen
+    second: {fileID: 2100000, guid: abf53a9f1709d5248bd86febbc0477d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillow1
+    second: {fileID: 2100000, guid: b27bd2ac81486da49ac29c88e8c9b344, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall
+    second: {fileID: 2100000, guid: f6cda5be2a4aff84abe838ddce755cf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: windowframe
+    second: {fileID: 2100000, guid: dfde7df85329d0a4e90aa1b5f5a5e7e7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
