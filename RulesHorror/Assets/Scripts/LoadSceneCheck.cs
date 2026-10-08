@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadSceneCheck : MonoBehaviour
 {
@@ -6,11 +8,18 @@ public class LoadSceneCheck : MonoBehaviour
     void Start()
     {
         GameManager.instance.sceneChangeCheck();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("quitting game...");
+    }
+    
 }

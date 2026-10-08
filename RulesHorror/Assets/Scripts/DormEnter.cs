@@ -10,7 +10,7 @@ public class DormEnter : MonoBehaviour
         {
             GameManager.instance.loadLocationData(dormReturn.position, dormReturn.rotation);
             //GO TO 'NEXT' SCENE
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

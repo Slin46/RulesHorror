@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     //that number is set in the build profiles for the project
     public void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 1)
         {
             //the below checks to see if data has been loaded into loadpos
             //if loadpos is blank then the game spawns the player at the mainstartingtransform
