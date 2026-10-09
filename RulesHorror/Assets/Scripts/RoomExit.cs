@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class RoomExit : MonoBehaviour
 {
-    public void OnTriggerEnter(Collider other)
+    public int sceneIndex;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }

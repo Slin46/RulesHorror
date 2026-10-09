@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dorm.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Room302.unity
+    guid: a267d00a2bb35964cb4d623adb5c7528
+  - enabled: 1
+    path: Assets/Scenes/Room303.unity
+    guid: 796a1f505e86b8f4fb126af2f0fd44bd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
