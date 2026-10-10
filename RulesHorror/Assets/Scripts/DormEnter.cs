@@ -1,16 +1,25 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DormEnter : MonoBehaviour
 {
-    public Transform dormReturn;
-    public void OnTriggerEnter(Collider other)
+    public string roomID;
+
+    private bool isLoading = false;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            GameManager.instance.loadLocationData(dormReturn.position, dormReturn.rotation);
-            //GO TO 'NEXT' SCENE
-            SceneManager.LoadScene(2);
-        }
+        if (!other.CompareTag("Player") || isLoading)
+            return;
+
+        if (GameManager.instance == null)
+            return;
+
+        isLoading = true;
+
+        GameManager.instance.SetTargetRoom(roomID);
+
+        SceneManager.LoadScene(2);
     }
 }

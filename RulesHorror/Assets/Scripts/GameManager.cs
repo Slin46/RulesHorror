@@ -1,8 +1,8 @@
+
 using StarterAssets;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,106 +10,220 @@ public class GameManager : MonoBehaviour
 
     public Transform mainStartingTransform;
     public GameObject ThirdPersonRig;
+
+    //position
     public Vector3 loadPos;
     public Quaternion loadRot;
 
+    //room id transitions
+    private string targetRoomID = "";
+    private bool useDirectPosition = false;
+    private bool hasPlacedInitialPlayer = false;
 
-    public void Awake()
+    private Coroutine placementCoroutine;
+
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
-        else
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoad;
+
+        //persisting the player between scenes
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
         {
-            instance = this;
-            //this is a built in action within the scenemanager that requires a listener method 
-            //that takes 2 arguments: scene and loadscenemode
-            //this action is called whenever a new scene is loaded
-            SceneManager.sceneLoaded += OnSceneLoad;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(player);
         }
     }
 
-    //this is the receiver mthod of the scneeloaded action
-    //it checks for what scene has been loaded using the scenes buildindex number
-    //that number is set in the build profiles for the project
-    public void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
-        if (scene.buildIndex == 1)
+        //place player at starting point
+        if (!hasPlacedInitialPlayer)
         {
-            //the below checks to see if data has been loaded into loadpos
-            //if loadpos is blank then the game spawns the player at the mainstartingtransform
-            //if loadpos has data then the game spawns the player at the loadpos and loadrot spot
-            if (loadPos == Vector3.zero)
-            {
-                //calls the instantation method using dynamic arguments for the position and rotation
-                SpawnThirdPersonPrefab(mainStartingTransform.position, mainStartingTransform.rotation);
-            }
-            else
-            {
-                SpawnThirdPersonPrefab(loadPos, loadRot);
-            }
-           
+            placementCoroutine = StartCoroutine(
+                PlacePlayerAfterSceneLoads(SceneManager.GetActiveScene())
+            );
         }
     }
 
-    //a public method we can call from outside this class to instatiate our thirdpersonrig prefab
-    //it takes 2 arguments: position and rotation where we want to spawn that thirdpersonrig prefab
-
-    public void SpawnThirdPersonPrefab(Vector3 pos, Quaternion rot)
+    private void OnDestroy()
     {
-        //GameObject player = Instantiate(ThirdPersonRig, pos, rot);
-
-        // Make sure the player is active
-        //player.SetActive(true);
-
-        // Find the camera even if it was disabled
-       // Camera playerCamera = player.GetComponentInChildren<Camera>(true);
-
-        //if (playerCamera != null)
+        if (instance == this)
         {
-           // playerCamera.gameObject.SetActive(true);
-
-            // Make sure it is the active camera
-           // playerCamera.enabled = true;
+            SceneManager.sceneLoaded -= OnSceneLoad;
+            instance = null;
         }
     }
 
-    //this method is called by the trigger of our loading zones when we exit the scene
-    //so that when we reload the 3d demo scene we use the loadpos and loadrot data
+    //using room id
+    public void SetTargetRoom(string roomID)
+    {
+        targetRoomID = roomID;
+        useDirectPosition = false;
+
+        Debug.Log("Target room: " + roomID);
+    }
+
+    //transition to a specific position correpsonding to their room ids
     public void loadLocationData(Vector3 pos, Quaternion rot)
     {
         loadPos = pos;
         loadRot = rot;
+
+        useDirectPosition = true;
+        targetRoomID = "";
     }
 
-   
+    public void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        if (placementCoroutine != null)
+        {
+            StopCoroutine(placementCoroutine);
+        }
+
+        placementCoroutine = StartCoroutine(
+            PlacePlayerAfterSceneLoads(scene)
+        );
+    }
+
+    private IEnumerator PlacePlayerAfterSceneLoads(Scene scene)
+    {
+        //wait for the scene to initialize
+        yield return null;
+        yield return new WaitForEndOfFrame();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
+        {
+            Debug.LogError(
+                "GameManager: Cannot find a GameObject tagged Player. " +
+                "Make sure your existing player persists between scenes."
+            );
+            yield break;
+        }
+
+        //move to saved position
+        if (useDirectPosition)
+        {
+            MovePlayer(player, loadPos, loadRot);
+
+            useDirectPosition = false;
+            hasPlacedInitialPlayer = true;
+            yield break;
+        }
+
+        //find room enter with matching room id
+        if (!string.IsNullOrEmpty(targetRoomID))
+        {
+            RoomEnter[] entrances =
+                FindObjectsByType<RoomEnter>(
+                    FindObjectsSortMode.None
+                );
+
+            foreach (RoomEnter entrance in entrances)
+            {
+                if (entrance.gameObject.scene != scene)
+                    continue;
+
+                if (entrance.roomID == targetRoomID)
+                {
+                    MovePlayer(
+                        player,
+                        entrance.transform.position,
+                        entrance.transform.rotation
+                    );
+
+                    Debug.Log("Player placed at room: " + targetRoomID);
+
+                    targetRoomID = "";
+                    hasPlacedInitialPlayer = true;
+                    yield break;
+                }
+            }
+
+            Debug.LogError(
+                "No RoomEnter found with ID: " + targetRoomID +
+                " in scene: " + scene.name
+            );
+
+            yield break;
+        }
+
+        //first time starting position
+        if (!hasPlacedInitialPlayer && mainStartingTransform != null)
+        {
+            MovePlayer(
+                player,
+                mainStartingTransform.position,
+                mainStartingTransform.rotation
+            );
+
+            hasPlacedInitialPlayer = true;
+        }
+    }
+
+    private void MovePlayer(
+        GameObject player,
+        Vector3 position,
+        Quaternion rotation)
+    {
+        CharacterController cc =
+            player.GetComponent<CharacterController>();
+
+        if (cc != null)
+            cc.enabled = false;
+
+        player.transform.SetPositionAndRotation(position, rotation);
+
+        if (cc != null)
+            cc.enabled = true;
+    }
+
+    public void SpawnThirdPersonPrefab(Vector3 pos, Quaternion rot)
+    {
+        Debug.Log("Using the existing player instead of spawning a new one.");
+    }
+
     public void sceneChangeCheck()
     {
         Debug.Log("You've Changed Scenes!");
     }
 
-    //this is a method that is called by startdialogue event in the dialoguerunner class
-    //we will toggle trye/false in the event system to call whether we want to move or not
     public void setPlayerMovement(bool b)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        ThirdPersonController tpc = player.GetComponent<ThirdPersonController>();
 
-        if (b)
-        {
-            tpc.enabled = false;
-        }
-        else
-        {
-            tpc.enabled = true;
-        }
+        if (player == null)
+            return;
+
+        ThirdPersonController tpc =
+            player.GetComponent<ThirdPersonController>();
+
+        if (tpc != null)
+            tpc.enabled = !b;
     }
+
     public void movePlayerOnNPC(Transform newPos)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = newPos.position;
+
+        if (player != null && newPos != null)
+        {
+            MovePlayer(
+                player,
+                newPos.position,
+                newPos.rotation
+            );
+        }
     }
 }
