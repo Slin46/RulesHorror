@@ -4,31 +4,38 @@ using UnityEngine;
 
 public class PagePanelController : MonoBehaviour
 {
+    [Header("Page Text")]
     [TextArea(3, 10)]
-    public string[] pages;
+    public string[] leftPages;
 
-    public TMP_Text pageText;
+    [TextArea(3, 10)]
+    public string[] rightPages;
+
+    public TMP_Text leftPageText;
+    public TMP_Text rightPageText;
     public TMP_Text pageNumberText;
+
     public GameObject panel;
 
     private int currentPage = 0;
 
     public void Open()
     {
-        if (pages == null || pages.Length == 0)
+        if (leftPages == null || leftPages.Length == 0)
             return;
 
         currentPage = 0;
         panel.SetActive(true);
-        ShowPage();
 
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        ShowPage();
     }
 
     public void NextPage()
     {
-        if (currentPage < pages.Length - 1)
+        if (currentPage < leftPages.Length - 1)
         {
             currentPage++;
             ShowPage();
@@ -46,11 +53,16 @@ public class PagePanelController : MonoBehaviour
 
     private void ShowPage()
     {
-        pageText.text = pages[currentPage];
+        leftPageText.text = leftPages[currentPage];
+
+        if (currentPage < rightPages.Length)
+            rightPageText.text = rightPages[currentPage];
+        else
+            rightPageText.text = "";
 
         if (pageNumberText != null)
             pageNumberText.text =
-                (currentPage + 1) + " / " + pages.Length;
+                (currentPage + 1) + " / " + leftPages.Length;
     }
 
     public void Close()

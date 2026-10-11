@@ -1931,6 +1931,7 @@ RectTransform:
   - {fileID: 240908612}
   - {fileID: 378019382}
   - {fileID: 667670091}
+  - {fileID: 1395071149}
   m_Father: {fileID: 768044775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1950,26 +1951,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e5a3e0c93b70c43a4a4c80fb87cd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PagePanelController
-  pages:
-  - "A 19 year old boy named XXX hung himself on the third floor bathroom at his
-    school. Students pass around a rumor of him being bullied but there was no proof.
-    Shortly after, his parents also passed away in grief. Is this a coincidence or
-    a cover up of a school violence act.\_"
-  - "On the boy's body, several burn marks and grotesque bruises were found. He was
-    also severly malnourished. As much as these could be proof of school violence,
-    they can also be forms of self harm. Neither can be proven with the information
-    we have.\_"
-  - "We have been investigating our child\u2019s death for almost a year now. XXX's
-    mom passed away last week, it was just too much for her. But I will find my son's
-    killer no matter what.\nTom was highly suspected of bullying my son but we don\u2019t
-    have enough evidence to confirm our suspicion. He died around 4 months after
-    my son's death. Could it be related?\_\nTom died in school, similar to my son.
-    He died from what was said to be a heart attack. Doctor says that the heart attack
-    may be caused by fear, but fear of what? He only had one wound, his eyes have
-    been dug out. But there was no signs of anyone else nor were there any struggles,
-    so did he dug them out himself? Did he feel guilty for what he did or could this
-    be some sort of revenge?\_"
-  pageText: {fileID: 667670092}
+  leftPages:
+  - "SCHOOL VIOLENCE? COVER UP? WHAT'S THE TRUTH?\n\nA 19 year old boy named XXX
+    hung himself in his school bathroom on the second floor. Students spread rumors
+    of him being bullied but there was no proof. Shortly after, his mother also passed
+    away in grief. Is this a coincidence or a cover up of school violence?\_"
+  - "JOURNAL \n\nWe have been investigating our child\u2019s death for almost a year
+    now. XXX\u2019s mom passed away last week, it was just too much for her. But
+    I will find my son's killer no matter what.\nTom was highly suspected of bullying
+    our child, but we don\u2019t have enough evidence to confirm our suspicion. He
+    died around 4 months after my son's death. Could it be related?\_"
+  rightPages:
+  - "STUDENT DEATH RECORD\n\nOn the boy's body, there were several burn marks and
+    grotesque bruises. He was also severly malnourished. As much as these could be
+    proof of violence, they can also be forms of self harm. Neither can be proven
+    with the information we have.\_"
+  - "Tom died in the school bathroom, just like my son. He died from what was said
+    to be a heart attack. The doctor said that the heart attack may be caused by
+    fear, but fear of what? He only had one wound, his eyes were dug out. But there
+    was no signs of anyone else nor were there any struggles, so did he dug them
+    out himself? Did he feel guilty for what he he did or could this be some sort
+    of revenge?\_"
+  leftPageText: {fileID: 667670092}
+  rightPageText: {fileID: 1395071150}
   pageNumberText: {fileID: 378019383}
   panel: {fileID: 571405666}
 --- !u!114 &571405669
@@ -2257,6 +2261,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5709642531758639413, guid: b858954ecc049b246b85226283b26cd6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1983000484}
+    - targetCorrespondingSourceObject: {fileID: -5709642531758639413, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1983000488}
     - targetCorrespondingSourceObject: {fileID: 4423045620967985251, guid: b858954ecc049b246b85226283b26cd6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 912936806}
@@ -2563,7 +2570,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2719,6 +2726,8 @@ RectTransform:
   m_Children:
   - {fileID: 1001451606}
   - {fileID: 1520906174}
+  - {fileID: 980382120}
+  - {fileID: 1724300753}
   - {fileID: 571405667}
   m_Father: {fileID: 963525281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2740,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3402,6 +3411,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &980382119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980382120}
+  - component: {fileID: 980382122}
+  - component: {fileID: 980382121}
+  m_Layer: 5
+  m_Name: lock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &980382120
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980382119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 768044775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 222}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &980382121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980382119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 913d68cb4fb8949498f85e17bd02f0f1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &980382122
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980382119}
+  m_CullTransparentMesh: 1
 --- !u!1 &986879425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8700748962553253455, guid: b858954ecc049b246b85226283b26cd6, type: 3}
@@ -3463,7 +3547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 152}
+  m_AnchoredPosition: {x: -30, y: -31}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001451607
@@ -3486,7 +3570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Password needed to unlock the box.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4081,6 +4165,143 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390971049}
   m_Mesh: {fileID: 9009893830714642796, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+--- !u!1 &1395071148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395071149}
+  - component: {fileID: 1395071151}
+  - component: {fileID: 1395071150}
+  m_Layer: 5
+  m_Name: rightjournal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395071149
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395071148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 571405667}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 298, y: 2}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1395071150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395071148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -58.46965, y: -350.78867, z: -272.52454, w: -276.17975}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1395071151
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395071148}
+  m_CullTransparentMesh: 1
 --- !u!224 &1399154832 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2355361765340444347, guid: 52571f68872914e24837210513edea1d, type: 3}
@@ -4343,34 +4564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e5a3e0c93b70c43a4a4c80fb87cd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PagePanelController
-  pages:
-  - "Journal entry #1: 8/12/2003\n\n\tIt was never my intention to hurt him, but
-    he sits next to her. For some reason, she\u2019s always looking at him. Plus,
-    what I did wasn\u2019t even that bad. I only made him drink some dirty water.
-    If he would just listen to me and stay away from her, I wouldn't have done anything
-    to him. But of course he wouldn\u2019t listen.\_"
-  - "Journal entry #2: 10/20/2003\n\n\tI honestly didn\u2019t know anyone could scream
-    that loud. It was just a bit of fire. Just a small punishment for tattletelling.
-    Not like it worked, my mom owns this school. But still I got in trouble with
-    my dad. Imagine his despair when he realize nothing happened to me.\_"
-  - "Journal entry #3: 12/11/2003\n\n\tWhy would he hang himself on the last day
-    of school. His death has nothing to do with me, I never forced him to do that.
-    Even when he\u2019s dead he still lingers around me, literally caused me to be
-    suspended for a week. It\u2019s not my fault he's weak. Yes, it\u2019s his fault.\_"
-  - "Journal entry #4: 1/26/2004\n\n\tI was quite lucky today, I fell asleep on the
-    train on my way to school. When I woke up it was perfect timing, it was exactly
-    my stop. But it was kind of strange, there was no one else on the train, just
-    me."
-  - "Journal entry #5: 3/2/2004\n\n\tRecently I've been having sleep disorders. Everyday
-    I'm always so tired and my dreams are all nightmares. Time passed quickly and
-    now its spring, but why is it still so cold in the dorm? Each nightfall, I feel
-    like there's less and less people in the dorm, is it just my imagination? There's
-    definitely something wrong with this place.\_"
-  - "Journal entry #6: 4/20/2004\n\n\tSomething is wrong. Someone is watching me,
-    they've been watching me! I don\u2019t want to go to the bathroom but I\u2019m
-    always there when i regain my conciousness. If you see something, crouch in the
-    corner... If someone knocks at your bathroom door, run\u2026\_"
-  pageText: {fileID: 59612716}
+  leftPages: []
+  rightPages: []
+  leftPageText: {fileID: 0}
+  rightPageText: {fileID: 0}
   pageNumberText: {fileID: 1857908758}
   panel: {fileID: 1488918657}
 --- !u!1 &1500902995
@@ -4499,9 +4696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a5c6d98233e3b4ea5878fc4d357201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  promptText: {fileID: 34203573}
   interactText: 'Press [E]'
-  canInteract: 0
+  promptText: {fileID: 34203573}
 --- !u!65 &1500903002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4559,7 +4755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -102}
+  m_AnchoredPosition: {x: 0, y: -287.00006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1520906175
@@ -4610,14 +4806,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 8
-  m_InputType: 2
+  m_ContentType: 2
+  m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 1
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -5175,6 +5371,131 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6745909664340614381, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+--- !u!1 &1721151170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4551560926237814871, guid: 8d2b841b7bc54cf4db0c5e655562dc7c, type: 3}
+  m_PrefabInstance: {fileID: 1894829064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1724300752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724300753}
+  - component: {fileID: 1724300756}
+  - component: {fileID: 1724300755}
+  - component: {fileID: 1724300754}
+  m_Layer: 5
+  m_Name: exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1724300753
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724300752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 768044775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -69, y: -70}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1724300754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724300752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1724300755}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1724300755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724300752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 114dc2943d4cfa246876b049d5390f75, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1724300756
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724300752}
+  m_CullTransparentMesh: 1
 --- !u!1 &1741312329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4795707468337888922, guid: b858954ecc049b246b85226283b26cd6, type: 3}
@@ -5501,7 +5822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafa73b6d37bb0c41a908b4969bf3c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  interactionType: 0
+  interactionType: 1
   notebookPages: {fileID: 0}
   passwordBox: {fileID: 1894829073}
   openClosetVisual: {fileID: 0}
@@ -5525,9 +5846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a5c6d98233e3b4ea5878fc4d357201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  promptText: {fileID: 34203573}
   interactText: 'Press [E]'
-  canInteract: 0
+  promptText: {fileID: 34203573}
 --- !u!65 &1894829072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5790,9 +6110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a5c6d98233e3b4ea5878fc4d357201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  promptText: {fileID: 34203573}
   interactText: 'Press [E]'
-  canInteract: 0
+  promptText: {fileID: 34203573}
 --- !u!65 &1983000484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5814,6 +6133,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.10964282, y: 0.09809211, z: 0.04798357}
   m_Center: {x: 0.005471401, y: 0, z: -0.005294378}
+--- !u!114 &1983000488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983000477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafa73b6d37bb0c41a908b4969bf3c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  interactionType: 2
+  notebookPages: {fileID: 0}
+  passwordBox: {fileID: 0}
+  openClosetVisual: {fileID: 0}
+  glassesVisual: {fileID: 1721151170}
+  candles: {fileID: 0}
+  raNPC: {fileID: 0}
 --- !u!1 &2039397257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6397543021814877363, guid: b858954ecc049b246b85226283b26cd6, type: 3}

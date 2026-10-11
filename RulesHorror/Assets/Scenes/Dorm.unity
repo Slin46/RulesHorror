@@ -13340,19 +13340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafa73b6d37bb0c41a908b4969bf3c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  interactionType: 0
-  interactionMessage: Press E
-  collectible: {fileID: 0}
-  notebookPanel: {fileID: 0}
-  passwordPanel: {fileID: 0}
-  passwordInput: {fileID: 0}
-  correctPassword: 1211
-  passwordRewardItem: 
-  npcPrefab: {fileID: 726555091}
-  npcSpawnPoint: {fileID: 726555095}
-  requiredQuestIDs: []
-  requiredQuestID: RaQuest
-  closetItemName: Glasses
+  interactionType: 4
+  notebookPages: {fileID: 0}
+  passwordBox: {fileID: 0}
+  openClosetVisual: {fileID: 0}
+  glassesVisual: {fileID: 0}
+  candles: {fileID: 1003366203}
+  raNPC: {fileID: 726555091}
 --- !u!114 &1422817583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13367,7 +13361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   promptText: {fileID: 855226261}
   interactText: 'Press [E]'
-  canInteract: 0
 --- !u!1 &1425725516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4088578945781739061, guid: 634f6b9f98dd15d4997e8fe9cadb29f2, type: 3}

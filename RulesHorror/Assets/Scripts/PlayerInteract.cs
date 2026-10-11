@@ -1,52 +1,66 @@
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
+    [Header("Interaction")]
+    public string interactText = "Press E";
     public TextMeshProUGUI promptText;
-    public string interactText;
-    public bool canInteract;
 
-    public void Start()
-    {
-       
-    }
+    private bool playerInRange = false;
+    private Interactable interactable;
 
-    public void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.gameObject.tag == "Player")
+        //find the Interactable component on this object.
+        interactable = GetComponent<Interactable>();
+
+        if (interactable == null)
         {
-            setText(interactText);
-            canInteract = true;
+            Debug.LogError(
+                "No Interactable script found on " + gameObject.name
+            );
         }
+
+        if (promptText != null)
+            promptText.text = "";
     }
 
-    public void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (!other.CompareTag("Player"))
+            return;
+
+        playerInRange = true;
+
+        if (promptText != null)
+            promptText.text = interactText;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        playerInRange = false;
+
+        if (promptText != null)
+            promptText.text = "";
+    }
+
+    private void Update()
+    {
+        if (!playerInRange || interactable == null)
+            return;
+
+        if (Keyboard.current != null &&
+            Keyboard.current.eKey.wasPressedThisFrame)
         {
-            setText("");
-            canInteract = false;
-        }
-    }
+            Debug.Log("Interacting with " + gameObject.name);
 
-    public void setText(string txt)
-    {
-        promptText.text = txt;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (canInteract)
-        {
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Debug.Log("Start Interaction");
-                
-                canInteract = false;
-            }
+            interactable.Interact();
         }
     }
 }
