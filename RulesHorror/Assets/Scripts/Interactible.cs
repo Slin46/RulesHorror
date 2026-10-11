@@ -1,160 +1,125 @@
 
 using UnityEngine;
-using TMPro;
 
 public class Interactable : MonoBehaviour
 {
     public enum InteractionType
     {
-        CollectItem,
-        OpenNotebook,
+        Notebook,
         PasswordBox,
-        SummonNPC,
-        Closet
+        Closet,
+        Glasses,
+        BathroomDoor
     }
 
-    //all of the items that can be interacted 
-    [Header("Interaction")]
     public InteractionType interactionType;
-    public string interactionMessage = "Press E";
-
-    [Header("Collect Item")]
-    public Collectible collectible;
 
     [Header("Notebook")]
-    public GameObject notebookPanel;
+    public PagePanelController notebookPages;
 
     [Header("Password Box")]
-    public GameObject passwordPanel;
-    public TMP_InputField passwordInput;
-    public string correctPassword = "1211";
-    public string passwordRewardItem = "";
-
-    [Header("Summon NPC")]
-    public GameObject npcPrefab;
-    public Transform npcSpawnPoint;
-    public string[] requiredQuestIDs;
+    public PasswordBoxController passwordBox;
 
     [Header("Closet")]
-    public string requiredQuestID = "RaQuest";
-    public string closetItemName = "Glasses";
+    public GameObject openClosetVisual;
+    public GameObject glassesVisual;
 
-    private bool alreadyUsed = false;
+    [Header("Bathroom")]
+    public GameObject candles;
+    public GameObject raNPC;
+
+    private bool closetOpened;
+    private bool glassesCollected;
+    private bool bathroomActivated;
 
     public void Interact()
     {
         switch (interactionType)
         {
-            case InteractionType.CollectItem:
-                if (collectible != null)
-                    collectible.Collect();
-                break;
+            case InteractionType.Notebook:
+                notebookPages.Open();
 
-            case InteractionType.OpenNotebook:
-                if (notebookPanel != null)
-                    notebookPanel.SetActive(true);
+                if (InvestigationProgress.instance != null)
+                    InvestigationProgress.instance.notebookRead = true;
                 break;
 
             case InteractionType.PasswordBox:
-                if (passwordPanel != null)
-                    passwordPanel.SetActive(true);
-                break;
-
-            case InteractionType.SummonNPC:
-                SummonNPC();
+                passwordBox.OpenPasswordPanel();
                 break;
 
             case InteractionType.Closet:
                 OpenCloset();
                 break;
+
+            case InteractionType.Glasses:
+                CollectGlasses();
+                break;
+
+            case InteractionType.BathroomDoor:
+                ActivateBathroom();
+                break;
         }
-    }
-
-    public void CheckPassword()
-    {
-        if (passwordInput == null)
-            return;
-
-        if (passwordInput.text == correctPassword)
-        {
-            Debug.Log("Correct password!");
-
-            if (!string.IsNullOrEmpty(passwordRewardItem))
-            {
-                InventoryManager.instance.AddItem(
-                    passwordRewardItem
-                );
-            }
-
-            if (passwordPanel != null)
-                passwordPanel.SetActive(false);
-
-            alreadyUsed = true;
-        }
-        else
-        {
-            Debug.Log("Incorrect password!");
-            passwordInput.text = "";
-        }
-    }
-
-    private void SummonNPC()
-    {
-        if (alreadyUsed)
-            return;
-
-        if (!AllRequiredQuestsComplete())
-        {
-            Debug.Log("You haven't completed all the required quests.");
-            return;
-        }
-
-        if (npcPrefab == null || npcSpawnPoint == null)
-        {
-            Debug.LogWarning("Assign the NPC prefab and spawn point.");
-            return;
-        }
-
-        Instantiate(
-            npcPrefab,
-            npcSpawnPoint.position,
-            npcSpawnPoint.rotation
-        );
-
-        alreadyUsed = true;
     }
 
     private void OpenCloset()
     {
-        if (alreadyUsed)
+        if (closetOpened)
             return;
 
-        if (!QuestManager.instance.IsQuestComplete(requiredQuestID))
+        if (InventoryManager.instance == null ||
+            !InventoryManager.instance.HasItem("Key to Closet"))
         {
-            Debug.Log("You need to finish Ra's quest first.");
+            Debug.Log("You need the key to open this closet.");
             return;
         }
 
-        InventoryManager.instance.AddItem(closetItemName);
+        closetOpened = true;
 
-        alreadyUsed = true;
-        Debug.Log("Collected " + closetItemName);
+        if (openClosetVisual != null)
+            openClosetVisual.SetActive(true);
+
+        if (glassesVisual != null)
+            glassesVisual.SetActive(true);
     }
 
-    private bool AllRequiredQuestsComplete()
+    private void CollectGlasses()
     {
-        if (requiredQuestIDs == null ||
-            requiredQuestIDs.Length == 0)
+        if (glassesCollected)
+            return;
+
+        if (!closetOpened)
+            return;
+
+        if (InventoryManager.instance == null)
+            return;
+
+        InventoryManager.instance.AddItem("Glasses");
+        glassesCollected = true;
+
+        if (glassesVisual != null)
+            glassesVisual.SetActive(false);
+
+        gameObject.SetActive(false);
+    }
+
+    private void ActivateBathroom()
+    {
+        if (bathroomActivated)
+            return;
+
+        if (InvestigationProgress.instance == null ||
+            !InvestigationProgress.instance.HasAllInformation())
         {
-            return true;
+            Debug.Log("You still need to investigate the notebook and box.");
+            return;
         }
 
-        foreach (string questID in requiredQuestIDs)
-        {
-            if (!QuestManager.instance.IsQuestComplete(questID))
-                return false;
-        }
+        bathroomActivated = true;
 
-        return true;
+        if (candles != null)
+            candles.SetActive(true);
+
+        if (raNPC != null)
+            raNPC.SetActive(true);
     }
 }
