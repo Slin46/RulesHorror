@@ -7,6 +7,9 @@ public class InvestigationProgress : MonoBehaviour
 
     public bool notebookRead;
     public bool boxOpened;
+    public bool bathroomDoorOpened;
+    public bool raRevealed;
+    public bool glassesQuestStarted;
 
     private void Awake()
     {

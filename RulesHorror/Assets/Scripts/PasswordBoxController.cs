@@ -9,12 +9,24 @@ public class PasswordBoxController : MonoBehaviour
     public TMP_InputField passwordInput;
     public TMP_Text messageText;
     public PagePanelController boxPages;
+    public PagePanelController passwordControls;
 
     private bool isCheckingPassword = false;
 
     public void OpenPasswordPanel()
     {
-        passwordPanel.SetActive(true);
+        if (PagePanelController.IsReading || NPCContact.IsTalking)
+            return;
+        if (InvestigationProgress.instance != null && InvestigationProgress.instance.boxOpened)
+        {
+            OpenBoxPages();
+            return;
+        }
+        if (passwordControls == null || passwordInput == null || messageText == null)
+            return;
+        passwordControls.OpenPanel();
+        if (!passwordControls.IsOpen)
+            return;
 
         isCheckingPassword = false;
         passwordInput.text = "";
@@ -32,7 +44,7 @@ public class PasswordBoxController : MonoBehaviour
         if (passwordPanel != null &&
             passwordPanel.activeInHierarchy &&
             Keyboard.current != null &&
-            Keyboard.current.enterKey.wasPressedThisFrame)
+            (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.numpadEnterKey.wasPressedThisFrame))
         {
             SubmitPassword();
         }
@@ -40,7 +52,7 @@ public class PasswordBoxController : MonoBehaviour
 
     public void SubmitPassword()
     {
-        if (isCheckingPassword)
+        if (isCheckingPassword || passwordControls == null || !passwordControls.IsOpen)
             return;
 
         if (passwordInput == null || messageText == null)
@@ -57,22 +69,17 @@ public class PasswordBoxController : MonoBehaviour
 
         if (enteredPassword == "1211")
         {
+            if (boxPages == null)
+            {
+                Debug.LogError("Box Pages is not assigned!");
+                return;
+            }
             isCheckingPassword = true;
             messageText.text = "Password correct!";
 
-            // Open the newspaper pages immediately.
-            passwordPanel.SetActive(false);
+            OpenBoxPages();
 
-            if (boxPages != null)
-            {
-                boxPages.Open();
-            }
-            else
-            {
-                Debug.LogError("Box Pages is not assigned!");
-            }
-
-            if (InvestigationProgress.instance != null)
+            if (boxPages.IsOpen && InvestigationProgress.instance != null)
             {
                 InvestigationProgress.instance.boxOpened = true;
             }
@@ -85,12 +92,24 @@ public class PasswordBoxController : MonoBehaviour
         }
     }
 
+    private void OpenBoxPages()
+    {
+        if (boxPages == null || boxPages.panel == null)
+            return;
+        if (passwordPanel != null && boxPages.panel.transform.IsChildOf(passwordPanel.transform))
+        {
+            Canvas.ForceUpdateCanvases();
+            boxPages.panel.transform.SetParent(passwordPanel.transform.parent, true);
+        }
+        if (passwordControls != null)
+            passwordControls.Close();
+        boxPages.Open();
+    }
+
     public void ClosePasswordPanel()
     {
-        passwordPanel.SetActive(false);
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (passwordControls != null)
+            passwordControls.Close();
 
         isCheckingPassword = false;
     }

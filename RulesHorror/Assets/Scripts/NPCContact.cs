@@ -1,79 +1,179 @@
+using System;
+using System.Collections.Generic;
+using StarterAssets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Yarn.Unity;
+using UnityEngine.SceneManagement;
 
 public class NPCContact : MonoBehaviour
 {
     public TextMeshProUGUI promptText;
-    public string interactText;
+    public string interactText = "Press [E]";
     public bool canInteract;
     public DialogueRunner npcDialogue;
-    public NPCCamera npc_cam_rig;
     public NPCProfile storyData;
+
+    private static NPCContact activeContact;
+    public static bool IsTalking => activeContact != null;
+    private readonly HashSet<Collider> playersInRange = new HashSet<Collider>();
+    private readonly List<Behaviour> pausedControllers = new List<Behaviour>();
+    private StarterAssetsInputs playerInput;
+    private bool previousCursorLocked;
+    private bool previousLookInput;
+    private bool previousCursorVisible;
+    private CursorLockMode previousCursorLock;
+    private bool talking;
 
     public void Start()
     {
-        //setting this variable looks a bit static for our system design tastes
-        //but we can practice a bit of deliberate design because we know were creating 
-        //a systematized npc rig and interaction for multiple instances
-        npc_cam_rig = transform.GetComponentInChildren<NPCCamera>();
+        if (storyData != null && storyData.currentPhase == NPCProfile.dialoguePhase.departed)
+            gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
+        if (!isActiveAndEnabled || !other.CompareTag("Player"))
+            return;
+        playersInRange.Add(other);
+        canInteract = true;
+        if (activeContact == null)
             setText(interactText);
-            canInteract = true;
-        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
+        if (!isActiveAndEnabled || !other.CompareTag("Player"))
+            return;
+        playersInRange.Remove(other);
+        canInteract = playersInRange.Count > 0;
+        if (!canInteract && activeContact == null)
             setText("");
-            canInteract = false;
-        }
     }
 
     public void setText(string txt)
     {
-        promptText.text = txt;
+        if (promptText != null)
+            promptText.text = txt;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (canInteract)
+        if (canInteract && activeContact == null && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+            StartConversation();
+    }
+
+    public async void StartConversation()
+    {
+        if (PagePanelController.IsReading)
+            return;
+        if (!isActiveAndEnabled || (storyData != null && storyData.currentPhase == NPCProfile.dialoguePhase.departed))
+            return;
+        if (activeContact != null || npcDialogue == null || npcDialogue.IsDialogueRunning)
+            return;
+        if (storyData == null || npcDialogue.YarnProject == null ||
+            npcDialogue.YarnProject.Program == null || Array.IndexOf(npcDialogue.YarnProject.NodeNames, storyData.startingNode) < 0)
         {
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Debug.Log("Start NPC dialogue");
-                setText("");
-                npc_cam_rig.movePlayer();
-                npcDialogue.StartDialogue(storyData.startingNode);
-                canInteract = false;
-            }
+            Debug.LogError("Assign an NPCProfile and a Yarn Project with the matching starting node on " + name, this);
+            return;
+        }
+
+        activeContact = this;
+        talking = true;
+        setText("");
+        PausePlayer();
+        npcDialogue.onDialogueComplete.AddListener(EndConversation);
+        try
+        {
+            await npcDialogue.StartDialogue(storyData.startingNode);
+        }
+        catch (Exception exception)
+        {
+            Debug.LogException(exception, this);
+            EndConversation();
         }
     }
 
-    //this yarn command/method sets the dialogue phase variable in my yarnspinner script
-    //we use this in our loadphase node to route the yarnspinner script to its correct storypath
+    private void PausePlayer()
+    {
+        previousCursorLock = Cursor.lockState;
+        previousCursorVisible = Cursor.visible;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            foreach (Behaviour controller in player.GetComponentsInChildren<Behaviour>())
+            {
+                if (controller.enabled && (controller is ThirdPersonController || controller is FirstPersonController))
+                {
+                    pausedControllers.Add(controller);
+                    controller.enabled = false;
+                }
+            }
+            playerInput = player.GetComponentInChildren<StarterAssetsInputs>();
+            if (playerInput != null)
+            {
+                previousCursorLocked = playerInput.cursorLocked;
+                previousLookInput = playerInput.cursorInputForLook;
+                playerInput.cursorLocked = false;
+                playerInput.cursorInputForLook = false;
+                playerInput.look = Vector2.zero;
+                playerInput.move = Vector2.zero;
+                playerInput.jump = false;
+            }
+        }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void EndConversation()
+    {
+        if (!talking)
+            return;
+        talking = false;
+        if (npcDialogue != null)
+            npcDialogue.onDialogueComplete.RemoveListener(EndConversation);
+        foreach (Behaviour controller in pausedControllers)
+        {
+            if (controller != null)
+                controller.enabled = true;
+        }
+        pausedControllers.Clear();
+        if (playerInput != null)
+        {
+            playerInput.cursorLocked = previousCursorLocked;
+            playerInput.cursorInputForLook = previousLookInput;
+            playerInput.look = Vector2.zero;
+            playerInput.move = Vector2.zero;
+            playerInput.jump = false;
+        }
+        Cursor.lockState = previousCursorLock;
+        Cursor.visible = previousCursorVisible;
+        if (activeContact == this)
+            activeContact = null;
+        setText(canInteract ? interactText : "");
+        if (storyData != null && storyData.currentPhase == NPCProfile.dialoguePhase.departed)
+            gameObject.SetActive(false);
+    }
+
     [YarnCommand("setPhase")]
     public void setStoryPhase()
     {
-        InMemoryVariableStorage vStore = GameObject.FindAnyObjectByType<InMemoryVariableStorage>();
-        vStore.SetValue("$dialogPhase", storyData.currentPhase.ToString());
+        if (npcDialogue != null && storyData != null)
+            npcDialogue.VariableStorage.SetValue("$dialogPhase", storyData.currentPhase.ToString());
     }
 
-    //this yarncommand/method gets a string from yarnspinner and converts that to the case were on in our npcdata scriptableobject
-    //it also contains a nice lil error reporting in case we pass a string that does not correspond to any dialoguephase
     [YarnCommand("getPhase")]
     public void getStoryPhase(string phase)
     {
-        if (phase == "comeback")
+        if (storyData == null)
+            return;
+
+        if (phase == "begin")
+        {
+            storyData.currentPhase = NPCProfile.dialoguePhase.begin;
+        }
+        else if (phase == "comeback")
         {
             storyData.currentPhase = NPCProfile.dialoguePhase.comeback;
         }
@@ -85,16 +185,56 @@ public class NPCContact : MonoBehaviour
         {
             storyData.currentPhase = NPCProfile.dialoguePhase.quest_completed;
         }
+        else if (phase == "reward_given")
+        {
+            storyData.currentPhase = NPCProfile.dialoguePhase.reward_given;
+        }
+        else if (phase == "departed")
+        {
+            storyData.currentPhase = NPCProfile.dialoguePhase.departed;
+        }
         else
         {
-            Debug.LogError("the string u passed in the yarnscipt does not match any current dialogue phase in the NPCProfile scriptable object");
+            Debug.LogError("Unknown NPC dialogue phase: " + phase, this);
         }
+    }
 
+    [YarnCommand("startGlassesQuest")]
+    public void StartGlassesQuest()
+    {
+        if (InvestigationProgress.instance != null)
+            InvestigationProgress.instance.glassesQuestStarted = true;
+    }
 
+    [YarnCommand("checkGlasses")]
+    public void CheckGlasses()
+    {
+        if (npcDialogue != null)
+            npcDialogue.VariableStorage.SetValue("$hasLuisGlasses", InventoryManager.instance != null && InventoryManager.instance.HasItem("Luis glasses"));
+    }
+
+    [YarnCommand("returnGlasses")]
+    public void ReturnGlasses()
+    {
+        if (InventoryManager.instance == null || !InventoryManager.instance.HasItem("Luis glasses"))
+            return;
+
+        InventoryManager.instance.RemoveItem("Luis glasses");
+        EndConversation();
+        SceneManager.LoadScene("EndScene");
+    }
+
+    private void OnDisable()
+    {
+        EndConversation();
+        playersInRange.Clear();
+        canInteract = false;
+        setText("");
     }
 
     public void OnApplicationQuit()
     {
-        storyData.dataReset();
+        if (storyData != null)
+            storyData.dataReset();
     }
 }

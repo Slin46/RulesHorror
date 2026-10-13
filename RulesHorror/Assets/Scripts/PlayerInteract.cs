@@ -30,30 +30,36 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!isActiveAndEnabled || !other.CompareTag("Player"))
             return;
 
         playerInRange = true;
 
+        if (interactable != null && interactable.interactionType == Interactable.InteractionType.BathroomDoor && interactable.BathroomOpened)
+            return;
+
         if (promptText != null)
-            promptText.text = interactText;
+            promptText.text = GetPrompt();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!isActiveAndEnabled || !other.CompareTag("Player"))
             return;
 
         playerInRange = false;
 
-        if (promptText != null)
+        if (promptText != null && promptText.text == GetPrompt())
             promptText.text = "";
     }
 
     private void Update()
     {
-        if (!playerInRange || interactable == null)
+        if (!playerInRange || interactable == null || PagePanelController.IsReading || NPCContact.IsTalking)
             return;
+
+        if (interactable.interactionType == Interactable.InteractionType.BathroomDoor && !interactable.BathroomOpened && promptText != null)
+            promptText.text = GetPrompt();
 
         if (Keyboard.current != null &&
             Keyboard.current.eKey.wasPressedThisFrame)
@@ -61,6 +67,18 @@ public class PlayerInteractor : MonoBehaviour
             Debug.Log("Interacting with " + gameObject.name);
 
             interactable.Interact();
+            if (interactable.interactionType == Interactable.InteractionType.BathroomDoor && interactable.BathroomOpened && promptText != null && promptText.text == interactText)
+                promptText.text = "";
         }
+    }
+
+    private string GetPrompt()
+    {
+        if (interactable != null && interactable.interactionType == Interactable.InteractionType.BathroomDoor)
+        {
+            if (interactable.BathroomOpened) return "";
+            if (!interactable.BathroomUnlocked) return "Locked";
+        }
+        return interactText;
     }
 }

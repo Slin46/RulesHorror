@@ -386,6 +386,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: startNode
+      value: phone_NPCDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: yarnProject
+      value:
+      objectReference: {fileID: 7545569452688597077, guid: 9a618a75102c47945b70cf3e1336ebe4, type: 3}
     - target: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -717,7 +725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431644149}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fa2095a56933c940b9f0a9e3840dd65, type: 3}
   m_Name: 
@@ -726,7 +734,6 @@ MonoBehaviour:
   interactText: Press (E)
   canInteract: 0
   npcDialogue: {fileID: 22552344}
-  npc_cam_rig: {fileID: 0}
   storyData: {fileID: 11400000, guid: b2b0738201241bb499f3b0aea379d517, type: 2}
 --- !u!1 &467019996 stripped
 GameObject:
@@ -1206,6 +1213,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -845712660158851041, guid: b858954ecc049b246b85226283b26cd6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 829308636}
+    - targetCorrespondingSourceObject: {fileID: -845712660158851041, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829308638}
+    - targetCorrespondingSourceObject: {fileID: -845712660158851041, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829308637}
     - targetCorrespondingSourceObject: {fileID: -6482454186643103876, guid: b858954ecc049b246b85226283b26cd6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1899907457}
@@ -1433,6 +1446,44 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1541214011702926920, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+--- !u!135 &829308637
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829308634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.08715474
+  m_Center: {x: 0.00001273337, y: -0.0017319409, z: -0.000000018037598}
+--- !u!114 &829308638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829308634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa2095a56933c940b9f0a9e3840dd65, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::NPCContact
+  promptText: {fileID: 2109460422}
+  interactText: Press [E] to read phone
+  canInteract: 0
+  npcDialogue: {fileID: 22552344}
+  storyData: {fileID: 11400000, guid: 3e3bafe42f6754b408ec4f6923e63e8a, type: 2}
 --- !u!1 &835712913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,7 +1501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &835712914
 Transform:
   m_ObjectHideFlags: 0
@@ -1940,7 +1991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1275525195
 Transform:
   m_ObjectHideFlags: 0

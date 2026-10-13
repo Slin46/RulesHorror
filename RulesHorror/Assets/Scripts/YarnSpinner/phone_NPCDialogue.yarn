@@ -1,4 +1,4 @@
-title: NPCDialogue
+title: phone_NPCDialogue
 ---
 Tom: Donʼt open the door or the lights, stay quiet.
 -> Who are you?
@@ -7,7 +7,6 @@ Tom: Donʼt open the door or the lights, stay quiet.
     Tom: It isnʼt a person knocking, stay quiet.
 Player: Wdym? I donʼt believe you. How do you even know someone is knocking at my door?
 Tom: I donʼt know what it is, just stay inside. I heard knocking at 304 and then it knocked at my door, then 302, Iʼm guessing youʼre next. If you donʼt believe me, check the beds next to you, I bet your roommates are gone.
-// The bed interaction is omitted.
 -> Where are my roommates?
     Tom: I donʼt know, my roommates are gone too.
 -> How do you know all of this?
@@ -39,7 +38,6 @@ title: GroupChatReply
 ---
 -> @RA My roommates are not in the room
     RA: I brought them to your door, open the door.
-    // The door-action choices and in-person encounter are omitted.
     <<stop>>
 -> Is it just me or are the rules kind of scary
     ???: Yes exactly, someoneʼs probably just pranking. Just ignore it.
@@ -78,7 +76,6 @@ title: BobChat
     Bob:(typing)
     Player: Do you need me to open the door?
     Bob: Yes
-    // Opening the door and going to bed are omitted physical actions.
     <<stop>>
 -> Where did you go, itʼs the middle of the night?
     Bob: The restroom

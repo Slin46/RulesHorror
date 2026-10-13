@@ -417,6 +417,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: startNode
+      value: jack_NPCDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: yarnProject
+      value:
+      objectReference: {fileID: 7545569452688597077, guid: 9a618a75102c47945b70cf3e1336ebe4, type: 3}
     - target: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -710,7 +718,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 1.7999995
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &431644151
 CapsuleCollider:
@@ -821,11 +829,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCContact
   promptText: {fileID: 2109460422}
-  interactText: Press (E)
+  interactText: Press [E] to talk to jack
   canInteract: 0
   npcDialogue: {fileID: 22552344}
-  npc_cam_rig: {fileID: 0}
-  storyData: {fileID: 11400000, guid: b2b0738201241bb499f3b0aea379d517, type: 2}
+  storyData: {fileID: 11400000, guid: 41837e8cbc7ea7647a537885966ccff1, type: 2}
 --- !u!1 &467019996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2062480673246439064, guid: b858954ecc049b246b85226283b26cd6, type: 3}
@@ -1657,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &835712914
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,7 +2007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1275525195
 Transform:
   m_ObjectHideFlags: 0

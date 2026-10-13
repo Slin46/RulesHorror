@@ -25,12 +25,32 @@ public class Interactable : MonoBehaviour
     public GameObject glassesVisual;
 
     [Header("Bathroom")]
-    public GameObject candles;
-    public GameObject raNPC;
+    public Collider doorCollider;
+    public bool requiresRAQuest;
 
     private bool closetOpened;
     private bool glassesCollected;
     private bool bathroomActivated;
+
+    public bool BathroomUnlocked => InvestigationProgress.instance != null &&
+        (requiresRAQuest ? InvestigationProgress.instance.glassesQuestStarted : InvestigationProgress.instance.boxOpened);
+    public bool BathroomOpened => bathroomActivated;
+
+    private void Start()
+    {
+        if (interactionType != InteractionType.BathroomDoor)
+            return;
+
+        bathroomActivated = InvestigationProgress.instance != null &&
+            (requiresRAQuest ? InvestigationProgress.instance.glassesQuestStarted : InvestigationProgress.instance.bathroomDoorOpened);
+        UpdateBathroomDoor();
+    }
+
+    private void Update()
+    {
+        if (interactionType == InteractionType.BathroomDoor && requiresRAQuest && !bathroomActivated && BathroomUnlocked)
+            ActivateBathroom();
+    }
 
     public void Interact()
     {
@@ -75,11 +95,21 @@ public class Interactable : MonoBehaviour
 
         closetOpened = true;
 
+        Renderer closetRenderer = GetComponent<Renderer>();
+        if (closetRenderer != null)
+            closetRenderer.enabled = false;
+
+        foreach (Collider closetCollider in GetComponents<Collider>())
+        {
+            if (!closetCollider.isTrigger)
+                closetCollider.enabled = false;
+        }
+
         if (openClosetVisual != null)
             openClosetVisual.SetActive(true);
 
         if (glassesVisual != null)
-            glassesVisual.SetActive(true);
+            glassesVisual.SetActive(!InventoryManager.instance.HasItem("Luis glasses"));
     }
 
     private void CollectGlasses()
@@ -107,19 +137,25 @@ public class Interactable : MonoBehaviour
         if (bathroomActivated)
             return;
 
-        if (InvestigationProgress.instance == null ||
-            !InvestigationProgress.instance.HasAllInformation())
-        {
-            Debug.Log("You still need to investigate the notebook and box.");
+        if (!BathroomUnlocked || doorCollider == null)
             return;
-        }
 
         bathroomActivated = true;
+        UpdateBathroomDoor();
 
-        if (candles != null)
-            candles.SetActive(true);
+        if (!requiresRAQuest)
+            InvestigationProgress.instance.bathroomDoorOpened = true;
+    }
 
-        if (raNPC != null)
-            raNPC.SetActive(true);
+    private void UpdateBathroomDoor()
+    {
+        if (doorCollider == null)
+            return;
+
+        doorCollider.enabled = !bathroomActivated;
+
+        Renderer doorRenderer = doorCollider.GetComponent<Renderer>();
+        if (doorRenderer != null)
+            doorRenderer.enabled = !bathroomActivated;
     }
 }

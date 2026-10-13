@@ -1,0 +1,55 @@
+title: jack_NPCDialogue
+---
+<<setPhase jack>>
+<<if $dialogPhase == "begin">>
+    <<jump jack_Start>>
+<<elseif $dialogPhase == "quest_started">>
+    <<jump jack_quest_started>>
+<<elseif $dialogPhase == "quest_completed">>
+    <<jump jack_Continue>>
+<<else>>
+    <<jump jack_Questions>>
+<<endif>>
+===
+
+title: jack_Start
+---
+Jack: Hey Mike right, whatʼs up.
+Player: Hey, Iʼm just here to talk about Tom.
+Jack: You are actually scaring me. Tom doesnʼt exist. I never saw him on the next door room list.
+Player: Who lives next door?
+Jack: I think it was some dude called Ted. I donʼt know his roommate. But Iʼm sure itʼs not someone called Tom otherwise Iʼd remember. If you donʼt believe me just go knock and see if you get an answer.
+<<getPhase jack "quest_started">>
+<<stop>>
+===
+
+title: jack_quest_started
+---
+Jack: Did you knock? Go check next door and tell me what happens.
+<<stop>>
+===
+
+title: jack_Continue
+---
+Player: No one answered
+Jack: See, I told you there was no one there.
+<<getPhase jack "comeback">>
+<<jump jack_Questions>>
+===
+
+title: jack_Questions
+---
+-> What do you know about the RA
+    Jack: The RA I met when moving in was like a really nice guy. I donʼt know whatʼs going on in the Groupchat but it feels like it isnʼt something he would send. Probably someoneʼs pranking us.
+    Player: If I wanted to talk to the RA where should I go.
+    Jack: To first floor RAʼs room. Itʼs 101, but I donʼt know if heʼs always there
+    <<jump jack_Questions>>
+-> What should I do to find out who Bob is
+    Jack: I mean you could just ask the RA. If you donʼt want anyone to know, you can always sneak into the RAʼs room and steal the key. Itʼs hung up on his wall.
+    <<jump jack_Questions>>
+-> Where is everyone why is the dorms so empty.
+    Jack: I actually donʼt know. I remember there wasnʼt a lot of people yesterday. But now itʼs just us? I guess you will just have to ask the RA.
+    <<jump jack_Questions>>
+-> That will be all
+    <<stop>>
+===
