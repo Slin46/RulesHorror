@@ -11,7 +11,7 @@ title: tom_NPCDialogue
 
 title: tom_Start
 ---
-Tom: Hey Mike, is do you need something?
+Tom: Hey Mike, do you need something?
 Player: Sorry for barging in.
 <<getPhase tom "comeback">>
 <<jump tom_Questions>>
@@ -23,24 +23,24 @@ title: tom_Questions
     Tom: Oh yeah, I was listening to music I didnʼt hear you
     <<jump tom_Questions>>
 -> I wanted to talk to you about what you meant yesterday
-    Player: Why did you tell me not to open the door. How did you know that something was wrong.
-    Tom: Look thereʼs a lot about me you donʼt know. But I know the RA, heʼs not a good person heʼs just trying to scare us.
+    Player: Why did you tell me not to open the door? How did you know that something was wrong?
+    Tom: Look thereʼs a lot about me you donʼt know. But I know the RA, heʼs not a good person he likes scaring the new students.
     <<jump tom_Questions>>
 -> Do you know Jack?
-    Tom: Yeah of course lives next door. I texted him yesterday too but he didnʼt answer
+    Tom: Yeah of course, he lives next door. I texted him yesterday too but he didnʼt answer.
     <<jump tom_Questions>>
 -> What do you know about Bob?
     Tom: Bob? Bob is dead, he died yesterday night, didnʼt you see? He was right in front of you.
     Player: How do you know
-    Tom: You told me of course! You came into my room yesterday just to tell me. You said you think Bob is dead, donʼt you remember.
-    Player: I donʼt know what you are talking about, I want to talk to him?
-    Tom: Sure heʼs probability in the second floor bathroom taking a shower.
-    Player: You just said he was dead.
+    Tom: You told me of course! You came into my room yesterday just to tell me. You said you think Bob is dead, donʼt you remember?
+    Player: I donʼt know what you are talking about, where is he right now?
+    Tom: He's probably on the second floor bathroom taking a shower.
+    Player: You just said he was dead though?
     <<jump tom_Questions>>
--> That will be all
+-> That will be all.
     Are you sure? (You will not be able to return to this conversation.)
     -> Yes
-        Tom: Alright I have a meeting so I gotta go, if you want to hang out a bit longer just stay, Remember to lock the door when you leave.
+        Tom: Alright I have a meeting so I gotta go, if you want to hang out a bit longer you can stay, but remember to lock the door when you leave.
         <<getPhase tom "departed">>
         <<stop>>
     -> No

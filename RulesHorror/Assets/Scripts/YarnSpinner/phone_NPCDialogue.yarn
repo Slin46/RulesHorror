@@ -1,4 +1,4 @@
-title: phone_NPCDialogue
+ title: phone_NPCDialogue
 ---
 Tom: Donʼt open the door or the lights, stay quiet.
 -> Who are you?
@@ -6,11 +6,11 @@ Tom: Donʼt open the door or the lights, stay quiet.
 -> Why?
     Tom: It isnʼt a person knocking, stay quiet.
 Player: Wdym? I donʼt believe you. How do you even know someone is knocking at my door?
-Tom: I donʼt know what it is, just stay inside. I heard knocking at 304 and then it knocked at my door, then 302, Iʼm guessing youʼre next. If you donʼt believe me, check the beds next to you, I bet your roommates are gone.
--> Where are my roommates?
-    Tom: I donʼt know, my roommates are gone too.
+Tom: I donʼt know what it is, just stay inside. I heard knocking at 304 and then it knocked at my door, then 302, Iʼm guessing youʼre next. If you donʼt believe me, check the bed next to you, I bet your roommate is gone.
+-> Where is my roommate?
+    Tom: I donʼt know, my roommate is gone too.
 -> How do you know all of this?
-    Tom: I guessed. my roommates are gone so Iʼm guessing yours are too.
+    Tom: I guessed. My roommate is gone so Iʼm guessing yours are too.
 <<jump DormGroupChat>>
 ===
 
@@ -23,11 +23,11 @@ Rules
 3. If you see something unusual in the hallways, go to the nearest corner and crouch facing the corner until you hear the ringing of the clock.
 4. If your roommates are gone, they are just in the bathroom, go out and bring them back.
 5. Room check is at 12AM. All children must be in their rooms before 12AM, if your roommates are not, the RA will bring them back. Open the door to let them in.
-RA: Naughty children who donʼt follow rules will get in trouble.
+RA: Naughty children who donʼt follow the rules will get in trouble.
 ???: Who is this? This is college, not high school.
 ???: I thought this is a student chat, who pulled a RA in.
 ???: Whatʼs with the rules?
-???: This is a joke right? If it is itʼs not funny
+???: This is a joke right? If it is, itʼs not funny
 -> Text in Group chat
     <<jump GroupChatReply>>
 -> Text someone else
@@ -36,7 +36,7 @@ RA: Naughty children who donʼt follow rules will get in trouble.
 
 title: GroupChatReply
 ---
--> @RA My roommates are not in the room
+-> @RA My roommate is not in the room
     RA: I brought them to your door, open the door.
     <<stop>>
 -> Is it just me or are the rules kind of scary
@@ -57,28 +57,27 @@ title: ChooseContact
 
 title: TomChat
 ---
--> is it possible that my roommates are right outside the door?
-    Tom: Maybe but think about it. If your roommates were outside, wouldnʼt they just come in? They wouldnʼt leave the room without a key right?
+-> Is it possible that my roommate is right outside the door?
+    Tom: Maybe but think about it. If your roommate were outside, wouldnʼt they just come in? They wouldnʼt leave the room without a key right?
     <<stop>>
 -> What do you know about the rules?
     Tom: I donʼt know but I donʼt want to know what happens if you break the rules.
     <<stop>>
 -> What is going on?
-    Tom: I donʼt know, whatever it is, it's not as innocent as it seems. Just follow the rules. If I find anything Iʼll update you.
+    Tom: I donʼt know, whatever it is, it's not as simple as it seems. Just follow the rules. If I find anything Iʼll update you.
     Player: How can I be sure that I can trust you?
-    Tom: You canʼt and you shouldnʼt, weʼre all just betting it at this point.
-    <<stop>>
+    Tom: You don't have to if you don't want to, but there's only a few of us here. We gotta do what we gotta do right? 
 ===
 
 title: BobChat
 ---
 -> Are you outside the door?
-    Bob:(typing)
+    Bob:(typing...)
     Player: Do you need me to open the door?
-    Bob: Yes
+    Bob: Yes.
     <<stop>>
--> Where did you go, itʼs the middle of the night?
-    Bob: The restroom
+-> Where did you go in the middle of the night?
+    Bob: The restroom.
     Player: Is someone with you?
     Bob: No, what are you talking about, stop scaring me.
     Bob: Can you come open the door?
@@ -94,7 +93,7 @@ title: JackChat
 Jack has accepted your friend request.
 Jack: Hey whatʼs up?
 -> Did anyone come and knock on your door?
-    Jack: No, who would knock in the middle of the night. Stop overreacting, itʼs probably just a senior prank.
+    Jack: No, why would anyone knock at my door in the middle of the night. Stop overreacting, itʼs probably just a senior prank.
     <<stop>>
 -> What room are you in?
     Jack: I live in 302.
@@ -103,7 +102,7 @@ Jack: Hey whatʼs up?
     Player: Maybe they came after?
     Jack: Idk maybe?
     <<stop>>
--> Are your roommates with you in the dorm?
+-> Is your roommate with you in the dorm?
     Jack: No? They went out, said they werenʼt coming back tonight. Why are you asking such weird questions, donʼt tell me you actually believe this bs.
     Player: Idk yet…
     <<stop>>

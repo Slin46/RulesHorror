@@ -423,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: yarnProject
-      value:
+      value: 
       objectReference: {fileID: 7545569452688597077, guid: 9a618a75102c47945b70cf3e1336ebe4, type: 3}
     - target: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_IsActive
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCContact
   promptText: {fileID: 2109460422}
-  interactText: Press [E] to talk to jack
+  interactText: Press [E] to Talk to Jack
   canInteract: 0
   npcDialogue: {fileID: 22552344}
   storyData: {fileID: 11400000, guid: 41837e8cbc7ea7647a537885966ccff1, type: 2}
@@ -3033,8 +3033,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -3065,7 +3065,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -225.28235, y: 0, z: -224.66614, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

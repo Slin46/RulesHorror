@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: yarnProject
-      value:
+      value: 
       objectReference: {fileID: 7545569452688597077, guid: 9a618a75102c47945b70cf3e1336ebe4, type: 3}
     - target: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_IsActive
@@ -440,6 +440,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InvestigationProgress
   notebookRead: 0
   boxOpened: 0
+  bathroomDoorOpened: 0
+  raRevealed: 0
+  glassesQuestStarted: 0
 --- !u!4 &211858435
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,7 +1480,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fa2095a56933c940b9f0a9e3840dd65, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCContact
   promptText: {fileID: 2109460422}
   interactText: Press [E] to read phone
@@ -2980,8 +2983,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -3012,7 +3015,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -235.96857, y: 0, z: -237.2801, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

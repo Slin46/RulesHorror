@@ -301,8 +301,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -328.02017, y: 0, z: -328.36798, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -439,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -514, y: 2}
+  m_AnchoredPosition: {x: -549, y: 0.00000071525574}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59612716
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -58.46965, y: -350.78867, z: -272.52454, w: -276.17975}
+  m_margin: {x: -25.08361, y: -361.6229, z: -302.88083, w: -279.08072}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -722,55 +722,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2958262985454349539, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 206.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 902.41125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 491.20563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -129.105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 902.41125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 491.20563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958262987206614837, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -41.879997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3443573992243610163, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -826,31 +826,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925107869966, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 105.759995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 902.41125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 49.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 491.20563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8020628925673895293, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -48.879997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: startNode
@@ -1107,11 +1107,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1488918658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 675.9, y: 360}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -220, y: -131}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &230324656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,8 +1731,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.7999995
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.0500815
+  m_Center: {x: 1.3005238e-17, y: 0.18422079, z: 0.03033483}
 --- !u!136 &431644151
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCContact
   promptText: {fileID: 2109460422}
-  interactText: Press [E] to talk to tom
+  interactText: Press [E] to talk to Tom
   canInteract: 0
   npcDialogue: {fileID: 22552344}
   storyData: {fileID: 11400000, guid: d63f46d8ee0dda646afafcde45b71758, type: 2}
@@ -2168,15 +2168,15 @@ MonoBehaviour:
   - 'Old Newspaper
 
 
-    A 19 year old boy named Luis hung himself in the bathroom
-    on the second floor of his school. Students tell a story of him being bullied
-    but there was no proof. Shortly after his parents also passed in grief. Is this
-    a coincidence or a cover up of school violence.'
-  - "A journal page\n\nWe have been investigating our child\xCA\xBCs death for almost
-    a year now. Luis\xCA\xBCs mom passed away last week, it was just too much for
-    her. But I will find my son's killer no matter what. \n\nTom was highly suspected
-    of bullying but we don\xCA\xBCt have enough proof to pin him. He died around
-    4 months after my son's death. Could it be related?"
+    A 19 year old boy named Luis hung himself in the third floor
+    bathroom in his school dorm. Students spread rumors of him being bullied but
+    there was no proof. Shortly after his parents also passed in grief. Is this a
+    coincidence or a cover up of school violence.'
+  - "A journal page\n\nWe have been investigating our child's death for almost a
+    year now. Luis's mom passed away last week, it was just too much for her. But
+    I will find my son's killer no matter what. \n\nTom was highly suspected of bullying
+    but we don't have enough proof to confirm our suspicion yet. He died around 4
+    months after my son's death. Could it be related?"
   rightPages:
   - 'Death Record
 
@@ -2185,10 +2185,12 @@ MonoBehaviour:
     He was also malnourished. As much as these could be proof of being bullied, they
     can also be forms of self harm. Neither can be proven with the information we
     have.'
-  - Tom died in school, similar to my son. He died from what was said to be a heart
-    attack. Doctor says that the heart attack may be caused by fear, but fear of
-    what. He only had one wound, his eyes have been dug out. But there was no struggle,
-    so he dug them out himself? Could this be some sort of revenge?
+  - It was reported that Tom also died in the school dorm bathroom but on the second
+    floor, just like my son. He died from what was said to be a heart attack. The
+    doctor explained that the heart attack may be caused by fear, but fear of what?
+    He only had one wound, his eyes have been dug out. But there were no signs of
+    anyone else and there were no struggles, so did he dug them out himself? Did
+    he feel immense guilt for what he did or could this be some sort of revenge?
   leftPageText: {fileID: 667670092}
   rightPageText: {fileID: 1395071150}
   pageNumberText: {fileID: 378019383}
@@ -2376,6 +2378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b858954ecc049b246b85226283b26cd6, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5709642531758639413, guid: b858954ecc049b246b85226283b26cd6, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b858954ecc049b246b85226283b26cd6, type: 3}
@@ -2734,7 +2740,7 @@ GameObject:
   - component: {fileID: 667670093}
   - component: {fileID: 667670092}
   m_Layer: 5
-  m_Name: leftjournal
+  m_Name: leftpage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3042,8 +3048,8 @@ Transform:
   m_GameObject: {fileID: 769553412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.02006, y: 0.01553, z: 0.095185}
-  m_LocalScale: {x: 0.9793683, y: 0.83174175, z: 0.9994688}
+  m_LocalPosition: {x: -0.00672, y: 0.00456, z: 0.09053}
+  m_LocalScale: {x: 0.9793683, y: 0.41813272, z: 0.9994688}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 600293117}
@@ -4865,7 +4871,7 @@ GameObject:
   - component: {fileID: 1395071151}
   - component: {fileID: 1395071150}
   m_Layer: 5
-  m_Name: rightjournal
+  m_Name: rightpage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5195,6 +5201,7 @@ RectTransform:
   - {fileID: 230324655}
   - {fileID: 1857908757}
   - {fileID: 59612715}
+  - {fileID: 1964829245}
   m_Father: {fileID: 963525281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5255,37 +5262,35 @@ MonoBehaviour:
   leftPages:
   - "Journal entry #1: 8/12/2003\n\nIt was never my intention to target him, but
     he sits next to her. For some reason, she\u02BCs always looking at him. Plus
-    what I did wasn\u02BCt that bad. I only made him drink some dirty water. If he
-    would just listen to me and stay away from her, we wouldn\u02BCt have a problem.
-    But of course he wouldn\u02BCt listen."
+    what I did wasn\u02BCt even that bad. I only made him drink some dirty water.
+    If he would just listen to me and stay away from her, we wouldn\u02BCt have a
+    problem. But of course he wouldn\u02BCt listen."
+  - "Journal entry #3: 12/11/2003\n\nWhy would he hang himself on the last day of
+    school, it was my birthday. How dare he ruin my important day. It\u02BCs not
+    like his death had anything to do with me, I never forced him to do that. Even
+    when he\u02BCs dead, he still lingers around me. Literally caused me to be suspended
+    for a week. It\u02BCs not my fault he has a weak mind. Yes it\u02BCs his fault."
+  - "Journal entry #5: 3/2/2004\n\nRecently I've been having sleep disorders. Everyday
+    I'm so tired and all my dreams are filled with nightmares. It's already spring,
+    why is it so cold in the dorm? Recently people's been disappearing, there's only
+    a few of us left. There\u02BCs definitely something wrong with this place."
+  rightPages:
   - "Journal entry #2: 10/20/2003\n\nI honestly didn\u02BCt know anyone could scream
-    that loud. It was just a bit of fire. Just a small punishment for tattletailing.
+    that loud. It was just a bit of fire. Just a small punishment for tattletelling.
     Not like it worked, my mom owns this school. But still I got in trouble with
     my dad. Imagine his despair when he realize nothing happened to me."
-  - "Journal entry #3: 12/11/2003\n\nWhy would he hang himself on the last day of
-    school. It\u02BCs not like it has anything to do with me, I never forced him
-    to do that. Even when he\u02BCs dead he still hovers around me. Literally caused
-    me to be suspended for a week. It\u02BCs not my fault he has a weak mind. Yes
-    it\u02BCs his fault.\n\nOld box password: 1211"
   - 'Journal entry #4: 1/26/2004
 
 
     I was quite lucky today, I fell asleep on
-    the train on my way to school. When I woke up it was perfect timing, it was exactly
-    my stop. But it was kind of strange, there was no one else on the train, just
-    me.'
-  - "Journal entry #5: 3/2/2004\n\nRecently I haven\u02BCt been able to sleep. My
-    dreams are filled with nightmares and everyday I\u02BCm still tired. Also it's
-    spring. Why is it so cold in the dorms? Recently a lot of people are gone. Why
-    are there so few people in the dorms? There\u02BCs something wrong with this
-    place."
-  - "Journal entry #6: 4/20/2004\n\nSomething is wrong. Someone is watching me, always
-    watching me. I don\u02BCt want to go to the bathroom but I\u02BCm always there.
-    If you see something, crouch in the corner. If someone knocks at your door in
-    the bathroom, run\u2026"
-  rightPages: []
+    the train on my way to school. When I woke up, it was exactly my stop. But it
+    was kind of strange, there was no one else on the train, just me.'
+  - "Journal entry #6: 4/20/2004\n\nSomething is wrong. Someone is watching me, they've
+    been watching me. I don\u02BCt want to go to the bathroom but I\u02BCm always
+    there. If you see something, crouch in the corner... If someone knocks at your
+    door in the bathroom, run\u2026"
   leftPageText: {fileID: 59612716}
-  rightPageText: {fileID: 0}
+  rightPageText: {fileID: 1964829246}
   pageNumberText: {fileID: 1857908758}
   panel: {fileID: 1488918657}
   nextButton: {fileID: 1222813565}
@@ -5437,8 +5442,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.081222534, y: 0.05489185, z: 0.38071105}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.04524654, y: 0.055313982, z: 0.30096135}
+  m_Center: {x: -0.004210866, y: -0.00021107536, z: -0.004961242}
 --- !u!1 &1520906173
 GameObject:
   m_ObjectHideFlags: 0
@@ -6542,15 +6547,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3630144794045081890, guid: 8d2b841b7bc54cf4db0c5e655562dc7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4893
+      value: -5.391
       objectReference: {fileID: 0}
     - target: {fileID: -3630144794045081890, guid: 8d2b841b7bc54cf4db0c5e655562dc7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11611
+      value: -0.185
       objectReference: {fileID: 0}
     - target: {fileID: -3630144794045081890, guid: 8d2b841b7bc54cf4db0c5e655562dc7c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.0186
+      value: -0.668
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8d2b841b7bc54cf4db0c5e655562dc7c, type: 3}
       propertyPath: m_Name
@@ -6624,7 +6629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a5c6d98233e3b4ea5878fc4d357201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  interactText: Press [E] to open the old box
+  interactText: Press [E] to open the box
   promptText: {fileID: 34203573}
 --- !u!65 &1894829072
 BoxCollider:
@@ -6822,6 +6827,143 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956717685}
+  m_CullTransparentMesh: 1
+--- !u!1 &1964829244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964829245}
+  - component: {fileID: 1964829247}
+  - component: {fileID: 1964829246}
+  m_Layer: 5
+  m_Name: rightjournal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1964829245
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964829244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1488918658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 264, y: 0.00000071525574}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1964829246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964829244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -25.08361, y: -363.00272, z: -307.4565, w: -275.5499}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1964829247
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964829244}
   m_CullTransparentMesh: 1
 --- !u!1 &1970060796 stripped
 GameObject:
@@ -7398,8 +7540,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -7430,7 +7572,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -293.03625, y: 0, z: -293.98218, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

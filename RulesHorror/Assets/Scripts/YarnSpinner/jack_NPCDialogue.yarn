@@ -14,10 +14,10 @@ title: jack_NPCDialogue
 
 title: jack_Start
 ---
-Jack: Hey Mike right, whatʼs up.
+Jack: Hey, Mike right? Whatʼs up.
 Player: Hey, Iʼm just here to talk about Tom.
 Jack: You are actually scaring me. Tom doesnʼt exist. I never saw him on the next door room list.
-Player: Who lives next door?
+Player: Who lives next door then?
 Jack: I think it was some dude called Ted. I donʼt know his roommate. But Iʼm sure itʼs not someone called Tom otherwise Iʼd remember. If you donʼt believe me just go knock and see if you get an answer.
 <<getPhase jack "quest_started">>
 <<stop>>
@@ -31,7 +31,7 @@ Jack: Did you knock? Go check next door and tell me what happens.
 
 title: jack_Continue
 ---
-Player: No one answered
+Player: You were right, no one answered.
 Jack: See, I told you there was no one there.
 <<getPhase jack "comeback">>
 <<jump jack_Questions>>
@@ -39,17 +39,17 @@ Jack: See, I told you there was no one there.
 
 title: jack_Questions
 ---
--> What do you know about the RA
-    Jack: The RA I met when moving in was like a really nice guy. I donʼt know whatʼs going on in the Groupchat but it feels like it isnʼt something he would send. Probably someoneʼs pranking us.
-    Player: If I wanted to talk to the RA where should I go.
-    Jack: To first floor RAʼs room. Itʼs 101, but I donʼt know if heʼs always there
+-> What do you know about the RA?
+    Jack: I met the RA when I was moving in and he was like a really nice guy. I donʼt know whatʼs going on in the Groupchat but it feels like it isnʼt something he would send. Probably someoneʼs pranking us.
+    Player: If I want to talk to the RA where should I go?
+    Jack: The RAʼs room is on the first floor. His room number is 101, but I donʼt know if heʼs there right now.
     <<jump jack_Questions>>
--> What should I do to find out who Bob is
+-> What should I do to find out who Bob is?
     Jack: I mean you could just ask the RA. If you donʼt want anyone to know, you can always sneak into the RAʼs room and steal the key. Itʼs hung up on his wall.
     <<jump jack_Questions>>
--> Where is everyone why is the dorms so empty.
-    Jack: I actually donʼt know. I remember there wasnʼt a lot of people yesterday. But now itʼs just us? I guess you will just have to ask the RA.
+-> Where is everyone? Why is the dorm so empty?
+    Jack: I actually donʼt know. I remember there wasnʼt a lot of people yesterday either. But now itʼs just us? I guess you will just have to ask the RA.
     <<jump jack_Questions>>
--> That will be all
+-> That will be all.
     <<stop>>
 ===

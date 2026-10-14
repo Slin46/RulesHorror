@@ -9,35 +9,35 @@ title: ra_NPCDialogue
 <<if $dialogPhase == "quest_started">>
     <<jump ra_GlassesQuest>>
 <<endif>>
-RA:Why have you summoned me?
+RA: Why have you summoned me?
 -> Why am I here
     RA: You came to me. Now I will take care of you.
     <<jump ra_GlassesQuest>>
--> How do I leave here
-    RA: Leave? I canʼt let you leave, play a game with me.
+-> How do I leave here?
+    RA: Leave? I canʼt let you leave yet, play a game with me.
     Player: What game.
     RA: I will give you a mystery and you get to ask 5 questions. You may leave if you solve it.
-    Player: And if I donʼt
-    RA: then you will be forever trapped here.
+    Player: And if I donʼt?
+    RA: Then you will be forever trapped in here with me.
     <<jump ra_Mystery>>
 ===
 
 title: ra_Mystery
 ---
-RA: 她送了我一副眼镜。
-RA: 我看清了黑板，却再也没能好好上课。
-RA: 四个月的事，他们只用一周就解决了。
-RA: 后来，我也用了四个月。
-RA: 他看不见了也就没办法好好上课了
-RA: 可我还是不满意。
-RA: 明明有那么多瞎子，可为什么只有他看不见了？
+RA: She gifted me a pair of glasses.她送了我一副眼镜。
+RA: I was able to see the blackboard clearly now, but never was able to properly attend class.我看清了黑板，却再也没能好好上课。
+RA: Four months, they took care of it in just one week.四个月的事，他们只用一周就解决了。
+RA: Then, I'll also use four months.后来，我也用了四个月。
+RA: If he can't see then he won't be able to properly attend class either.他看不见了也就没办法好好上课了
+RA: But I'm still not satisfied.可我还是不满意。
+RA: There's so many blind peeople, so why is it just him who can't see anymore?明明有那么多瞎子，可为什么只有他看不见了？
 <<jump ra_GlassesQuest>>
 ===
 
 title: ra_GlassesQuest
 ---
 RA: I will give you a chance to leave.
-RA: But it would require you to get something for me. Go to Toms room there is a locked room. In the box is my glasses. I donʼt know where the key is but you can consider looking where he died. He died in a bathroom on second floor.
+RA: But it would require you to get something for me. Go to Tom's room, there is a locked closet. In the closet, there is my glasses. I donʼt know where the key is but you can consider looking where he died.
 <<startGlassesQuest ra>>
 <<getPhase ra "quest_started">>
 <<stop>>
@@ -45,7 +45,8 @@ RA: But it would require you to get something for me. Go to Toms room there is a
 
 title: ra_ReturnGlasses
 ---
-RA: Thank you.
+RA: Thank you for returning my glasses back to me.
+RA: As promised, I'll let you leave. Just leave through the exit, I have opened the door for you.
 <<returnGlasses ra>>
 <<stop>>
 ===
