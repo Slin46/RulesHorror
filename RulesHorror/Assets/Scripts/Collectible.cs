@@ -12,7 +12,6 @@ public class Collectible : MonoBehaviour
 
     private bool collected = false;
 
-    //on triggercollision destroy the object and add the item to the inventory
     private void OnTriggerEnter(Collider other)
     {
         if (!collectOnTrigger || collected)

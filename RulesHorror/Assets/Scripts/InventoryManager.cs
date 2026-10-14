@@ -25,10 +25,8 @@ public class InventoryManager : MonoBehaviour
 
         instance = this;
 
-        //preserve the manager and all its children between scenes.
         DontDestroyOnLoad(gameObject);
 
-        //listen for scene changes.
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -48,21 +46,18 @@ public class InventoryManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //give the new scene a frame to initialize.
         CancelInvoke(nameof(FindInventoryText));
         Invoke(nameof(FindInventoryText), 0.1f);
     }
 
     private void FindInventoryText()
     {
-        //keep the existing reference if it is still valid.
         if (inventoryText != null)
         {
             UpdateUI();
             return;
         }
 
-        //find a TextMeshPro UI object in the new scene.
         TMP_Text[] texts = FindObjectsByType<TMP_Text>(
             FindObjectsSortMode.None
         );

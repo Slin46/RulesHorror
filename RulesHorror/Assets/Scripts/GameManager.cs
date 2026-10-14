@@ -11,11 +11,9 @@ public class GameManager : MonoBehaviour
     public Transform mainStartingTransform;
     public GameObject ThirdPersonRig;
 
-    //position
     public Vector3 loadPos;
     public Quaternion loadRot;
 
-    //room id transitions
     private string targetRoomID = "";
     private bool useDirectPosition = false;
     private bool hasPlacedInitialPlayer = false;
@@ -35,7 +33,6 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoad;
 
-        //persisting the player between scenes
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
@@ -46,7 +43,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //place player at starting point
         if (!hasPlacedInitialPlayer)
         {
             placementCoroutine = StartCoroutine(
@@ -64,7 +60,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //using room id
     public void SetTargetRoom(string roomID)
     {
         targetRoomID = roomID;
@@ -73,7 +68,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Target room: " + roomID);
     }
 
-    //transition to a specific position correpsonding to their room ids
     public void loadLocationData(Vector3 pos, Quaternion rot)
     {
         loadPos = pos;
@@ -97,7 +91,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlacePlayerAfterSceneLoads(Scene scene)
     {
-        //wait for the scene to initialize
         yield return null;
         yield return new WaitForEndOfFrame();
 
@@ -112,7 +105,6 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
-        //move to saved position
         if (useDirectPosition)
         {
             MovePlayer(player, loadPos, loadRot);
@@ -122,7 +114,6 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
-        //find room enter with matching room id
         if (!string.IsNullOrEmpty(targetRoomID))
         {
             RoomEnter[] entrances =
@@ -159,7 +150,6 @@ public class GameManager : MonoBehaviour
             yield break;
         }
 
-        //first time starting position
         if (!hasPlacedInitialPlayer && mainStartingTransform != null)
         {
             MovePlayer(

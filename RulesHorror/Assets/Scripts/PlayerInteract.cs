@@ -14,7 +14,6 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Start()
     {
-        //find the Interactable component on this object.
         interactable = GetComponent<Interactable>();
 
         if (interactable == null)
