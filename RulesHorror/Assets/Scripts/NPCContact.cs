@@ -213,15 +213,33 @@ public class NPCContact : MonoBehaviour
             npcDialogue.VariableStorage.SetValue("$hasLuisGlasses", InventoryManager.instance != null && InventoryManager.instance.HasItem("Luis glasses"));
     }
 
+    [YarnCommand("finishPhone")]
+    public void FinishPhone(bool inviteBob)
+    {
+        if (InvestigationProgress.instance == null)
+            return;
+
+        InvestigationProgress.instance.phoneConversationFinished = true;
+        if (inviteBob && !InvestigationProgress.instance.bobVisitFinished)
+            InvestigationProgress.instance.bobAtDoor = true;
+    }
+
     [YarnCommand("returnGlasses")]
     public void ReturnGlasses()
     {
-        if (InventoryManager.instance == null || !InventoryManager.instance.HasItem("Luis glasses"))
+        if (InventoryManager.instance == null || InvestigationProgress.instance == null || !InventoryManager.instance.HasItem("Luis glasses"))
             return;
 
         InventoryManager.instance.RemoveItem("Luis glasses");
+        InvestigationProgress.instance.exitUnlocked = true;
+        getStoryPhase("reward_given");
+    }
+
+    [YarnCommand("gameOver")]
+    public void GameOver()
+    {
         EndConversation();
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("GameOver");
     }
 
     private void OnDisable()

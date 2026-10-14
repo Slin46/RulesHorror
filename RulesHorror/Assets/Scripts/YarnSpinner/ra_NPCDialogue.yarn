@@ -1,18 +1,30 @@
 title: ra_NPCDialogue
 ---
 <<declare $hasLuisGlasses = false>>
-<<checkGlasses ra>>
-<<if $hasLuisGlasses>>
+<<declare $ra_questionsAsked = 0>>
+<<declare $ra_asked_gift = false>>
+<<declare $ra_asked_jealous = false>>
+<<declare $ra_asked_bullying = false>>
+<<declare $ra_asked_death = false>>
+<<declare $ra_asked_punishment = false>>
+<<declare $ra_asked_revenge = false>>
+<<declare $ra_asked_eyes = false>>
+<<declare $ra_asked_blind = false>>
+<<setPhase ra>>
+<<if $dialogPhase == "reward_given">>
     <<jump ra_ReturnGlasses>>
 <<endif>>
-<<setPhase ra>>
 <<if $dialogPhase == "quest_started">>
+    <<checkGlasses ra>>
+    <<if $hasLuisGlasses>>
+        <<jump ra_ReturnGlasses>>
+    <<endif>>
     <<jump ra_GlassesQuest>>
 <<endif>>
 RA: Why have you summoned me?
 -> Why am I here
     RA: You came to me. Now I will take care of you.
-    <<jump ra_GlassesQuest>>
+    <<jump ra_Mystery>>
 -> How do I leave here?
     RA: Leave? I canʼt let you leave yet, play a game with me.
     Player: What game.
@@ -24,6 +36,15 @@ RA: Why have you summoned me?
 
 title: ra_Mystery
 ---
+<<set $ra_questionsAsked = 0>>
+<<set $ra_asked_gift = false>>
+<<set $ra_asked_jealous = false>>
+<<set $ra_asked_bullying = false>>
+<<set $ra_asked_death = false>>
+<<set $ra_asked_punishment = false>>
+<<set $ra_asked_revenge = false>>
+<<set $ra_asked_eyes = false>>
+<<set $ra_asked_blind = false>>
 RA: She gifted me a pair of glasses.她送了我一副眼镜。
 RA: I was able to see the blackboard clearly now, but never was able to properly attend class.我看清了黑板，却再也没能好好上课。
 RA: Four months, they took care of it in just one week.四个月的事，他们只用一周就解决了。
@@ -31,7 +52,7 @@ RA: Then, I'll also use four months.后来，我也用了四个月。
 RA: If he can't see then he won't be able to properly attend class either.他看不见了也就没办法好好上课了
 RA: But I'm still not satisfied.可我还是不满意。
 RA: There's so many blind peeople, so why is it just him who can't see anymore?明明有那么多瞎子，可为什么只有他看不见了？
-<<jump ra_GlassesQuest>>
+<<jump ra_Questions>>
 ===
 
 title: ra_GlassesQuest
@@ -45,8 +66,52 @@ RA: But it would require you to get something for me. Go to Tom's room, there is
 
 title: ra_ReturnGlasses
 ---
-RA: Thank you for returning my glasses back to me.
-RA: As promised, I'll let you leave. Just leave through the exit, I have opened the door for you.
+RA: Leave now before I change my mind.
+RA: Go through the exit, and you will return to the same place you entered this place from.
 <<returnGlasses ra>>
 <<stop>>
+===
+
+title: ra_Questions
+---
+<<if $ra_questionsAsked >= 5>>
+    <<jump ra_RiddleResult>>
+<<endif>>
+-> Did she give me glasses because I couldn’t see clearly? <<if not $ra_asked_gift>>
+    <<set $ra_asked_gift = true>>
+    RA: Yes. My family was poor, and I struggled to see the blackboard. The girl beside me often helped me. She gave me glasses for my birthday, and I began to develop feelings for her.
+-> Was someone unhappy about her kindness to me? <<if not $ra_asked_jealous>>
+    <<set $ra_asked_jealous = true>>
+    RA: Yes. Tom had grown up with her and became jealous. He was the son of the head of the school, and he began secretly bullying me.
+-> Were the first four months the time I was being bullied? <<if not $ra_asked_bullying>>
+    <<set $ra_asked_bullying = true>>
+    RA: Yes. For four months, Tom’s bullying became increasingly violent. He forced my head into a toilet, burned my clothes, and poured water over me. Seeing the blackboard clearly couldn’t protect me from him.
+-> Did I die before the second four months began? <<if not $ra_asked_death>>
+    <<set $ra_asked_death = true>>
+    RA: Yes. On the last day of school, I took my own life in the bathroom where he had abused me. I left a promise: “Even as a ghost, I will never let you get away with this.”
+-> Was “one week” the punishment he received? <<if not $ra_asked_punishment>>
+    <<set $ra_asked_punishment = true>>
+    RA: Yes. The school protected Tom because of his father. My family demanded the truth, but he received only a week’s suspension and a scolding. My mother died in grief, and my father died soon afterward, still not knowing the truth.
+-> Did I deliberately make the next four months match the first? <<if not $ra_asked_revenge>>
+    <<set $ra_asked_revenge = true>>
+    RA: Yes. I returned as a ghost and tormented Tom for exactly four months. I wanted him to suffer for as long as he had made me suffer.
+-> Was I the reason he could no longer see? <<if not $ra_asked_eyes>>
+    <<set $ra_asked_eyes = true>>
+    RA: Yes. At the end of those four months, I took Tom’s eyes. Now he couldn’t see the blackboard either.
+-> Were the other “blind people” actually able to see? <<if not $ra_asked_blind>>
+    <<set $ra_asked_blind = true>>
+    RA: Yes. They were the people at the school who saw what was happening and chose to ignore it. They protected Tom and let my family suffer. Why should only Tom lose his sight when so many people had turned a blind eye?
+<<set $ra_questionsAsked += 1>>
+<<jump ra_Questions>>
+===
+
+title: ra_RiddleResult
+---
+<<if $ra_asked_punishment and $ra_asked_revenge and $ra_asked_blind>>
+    <<jump ra_GlassesQuest>>
+<<else>>
+    RA: Your five questions are over. You still don’t understand. You will stay here with me forever.
+    <<gameOver ra>>
+    <<stop>>
+<<endif>>
 ===

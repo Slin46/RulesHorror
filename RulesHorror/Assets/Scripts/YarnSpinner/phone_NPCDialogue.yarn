@@ -23,7 +23,6 @@ Rules
 3. If you see something unusual in the hallways, go to the nearest corner and crouch facing the corner until you hear the ringing of the clock.
 4. If your roommates are gone, they are just in the bathroom, go out and bring them back.
 5. Room check is at 12AM. All children must be in their rooms before 12AM, if your roommates are not, the RA will bring them back. Open the door to let them in.
-RA: Naughty children who donʼt follow the rules will get in trouble.
 ???: Who is this? This is college, not high school.
 ???: I thought this is a student chat, who pulled a RA in.
 ???: Whatʼs with the rules?
@@ -38,6 +37,7 @@ title: GroupChatReply
 ---
 -> @RA My roommate is not in the room
     RA: I brought them to your door, open the door.
+    <<finishPhone phone true>>
     <<stop>>
 -> Is it just me or are the rules kind of scary
     ???: Yes exactly, someoneʼs probably just pranking. Just ignore it.
@@ -59,14 +59,17 @@ title: TomChat
 ---
 -> Is it possible that my roommate is right outside the door?
     Tom: Maybe but think about it. If your roommate were outside, wouldnʼt they just come in? They wouldnʼt leave the room without a key right?
+    <<finishPhone phone false>>
     <<stop>>
 -> What do you know about the rules?
     Tom: I donʼt know but I donʼt want to know what happens if you break the rules.
+    <<finishPhone phone false>>
     <<stop>>
 -> What is going on?
     Tom: I donʼt know, whatever it is, it's not as simple as it seems. Just follow the rules. If I find anything Iʼll update you.
     Player: How can I be sure that I can trust you?
     Tom: You don't have to if you don't want to, but there's only a few of us here. We gotta do what we gotta do right? 
+    <<finishPhone phone false>>
 ===
 
 title: BobChat
@@ -75,16 +78,19 @@ title: BobChat
     Bob:(typing...)
     Player: Do you need me to open the door?
     Bob: Yes.
+    <<finishPhone phone true>>
     <<stop>>
 -> Where did you go in the middle of the night?
     Bob: The restroom.
     Player: Is someone with you?
     Bob: No, what are you talking about, stop scaring me.
     Bob: Can you come open the door?
+    <<finishPhone phone true>>
     <<stop>>
 -> Did you see the messages in the group chat?
     Bob: What are the rules? Someoneʼs probably pranking us.
     Bob: Donʼt worry about me, I'm not coming back tonight, I have a date.
+    <<finishPhone phone false>>
     <<stop>>
 ===
 
@@ -94,6 +100,7 @@ Jack has accepted your friend request.
 Jack: Hey whatʼs up?
 -> Did anyone come and knock on your door?
     Jack: No, why would anyone knock at my door in the middle of the night. Stop overreacting, itʼs probably just a senior prank.
+    <<finishPhone phone false>>
     <<stop>>
 -> What room are you in?
     Jack: I live in 302.
@@ -101,9 +108,11 @@ Jack: Hey whatʼs up?
     Jack: What are you talking about, there is no Tom in 303. 303ʼs students didnʼt come in during orientation.
     Player: Maybe they came after?
     Jack: Idk maybe?
+    <<finishPhone phone false>>
     <<stop>>
 -> Is your roommate with you in the dorm?
     Jack: No? They went out, said they werenʼt coming back tonight. Why are you asking such weird questions, donʼt tell me you actually believe this bs.
     Player: Idk yet…
+    <<finishPhone phone false>>
     <<stop>>
 ===

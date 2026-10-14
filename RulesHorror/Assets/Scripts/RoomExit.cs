@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public class RoomExit : MonoBehaviour
 {
     public int sceneIndex;
+    public bool requiresRARelease;
+    public Collider exitDoorCollider;
 
     [Header("Optional door key")]
     public string requiredKey;
@@ -20,8 +22,14 @@ public class RoomExit : MonoBehaviour
     private bool WaitingForJack => knockQuest != null &&
         knockQuest.currentPhase == NPCProfile.dialoguePhase.quest_started;
 
-    private bool IsLocked => !string.IsNullOrEmpty(requiredKey) &&
-        (InventoryManager.instance == null || !InventoryManager.instance.HasItem(requiredKey));
+    private bool IsLocked =>
+        (requiresRARelease && (InvestigationProgress.instance == null || !InvestigationProgress.instance.exitUnlocked)) ||
+        (!string.IsNullOrEmpty(requiredKey) && (InventoryManager.instance == null || !InventoryManager.instance.HasItem(requiredKey)));
+
+    private void Start()
+    {
+        UpdateExitDoor();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,8 +55,21 @@ public class RoomExit : MonoBehaviour
 
     private void Update()
     {
+        UpdateExitDoor();
+
         if (playersInRange.Count > 0 && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             Knock();
+    }
+
+    private void UpdateExitDoor()
+    {
+        if (!requiresRARelease || exitDoorCollider == null)
+            return;
+
+        exitDoorCollider.enabled = IsLocked;
+        Renderer doorRenderer = exitDoorCollider.GetComponent<Renderer>();
+        if (doorRenderer != null)
+            doorRenderer.enabled = IsLocked;
     }
 
     public void Knock()

@@ -33,10 +33,7 @@ title: tom_Questions
     Tom: Bob? Bob is dead, he died yesterday night, didnʼt you see? He was right in front of you.
     Player: How do you know
     Tom: You told me of course! You came into my room yesterday just to tell me. You said you think Bob is dead, donʼt you remember?
-    Player: I donʼt know what you are talking about, where is he right now?
-    Tom: He's probably on the second floor bathroom taking a shower.
-    Player: You just said he was dead though?
-    <<jump tom_Questions>>
+     <<jump tom_Questions>>
 -> That will be all.
     Are you sure? (You will not be able to return to this conversation.)
     -> Yes

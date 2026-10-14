@@ -10,6 +10,10 @@ public class InvestigationProgress : MonoBehaviour
     public bool bathroomDoorOpened;
     public bool raRevealed;
     public bool glassesQuestStarted;
+    public bool exitUnlocked;
+    public bool phoneConversationFinished;
+    public bool bobAtDoor;
+    public bool bobVisitFinished;
 
     private void Awake()
     {
